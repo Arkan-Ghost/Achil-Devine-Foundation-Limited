@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Mission & Vision</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* === VARIABLES AND GLOBAL STYLES === */
+        :root {
+            --primary-dark: #0a2f44;
+            --primary-blue: #1e4a6d;
+            --accent-orange: #f39237;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #6c757d;
+            --bg-light: #f8f9fa;
+            --footer-bg: #052233;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --navbar-bg: rgba(10, 47, 68, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: #e07b2f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-light {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+
+        /* === NAVIGATION === */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 5%;
+            background-color: var(--primary-dark);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            max-height: 50px;
+            width: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            border-left-color: var(--accent-orange);
+            color: var(--accent-orange);
+            padding-left: 25px;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === PAGE HEADER === */
+        .page-header {
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* === MISSION SECTION (Image + Texte côte à côte) === */
+        .mission-section {
+            background-color: var(--text-light);
+        }
+
+        .mission-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .mission-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .mission-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .mission-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .mission-content {
+            flex: 1;
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .mission-content h2 {
+            text-align: left;
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-content h3 {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .mission-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .highlight-box {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-left: 4px solid var(--accent-orange);
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* === STRATEGIC OBJECTIVES (en grille mais avec images) === */
+        .objectives-section {
+            background-color: var(--bg-light);
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .objective-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .objective-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .objective-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .objective-card:hover .objective-image img {
+            transform: scale(1.1);
+        }
+
+        .objective-content {
+            padding: 25px;
+        }
+
+        .objective-number {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .objective-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .objective-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* === VALUES SECTION (avec images) === */
+        .values-section {
+            background-color: var(--text-light);
+        }
+
+        .values-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .values-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .values-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .values-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .values-list {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .value-tag {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-tag:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .value-tag:hover i,
+        .value-tag:hover h4,
+        .value-tag:hover p {
+            color: var(--text-light);
+        }
+
+        .value-tag i {
+            font-size: 2rem;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .value-tag h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .value-tag p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+
+        /* === COMMITMENT SECTION === */
+        .commitment-section {
+            background: linear-gradient(rgba(30, 74, 109, 0.95), rgba(30, 74, 109, 0.95)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .commitment-section h2 {
+            color: var(--text-light);
+        }
+
+        .commitment-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .commitment-stat {
+            text-align: center;
+        }
+
+        .commitment-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            display: block;
+        }
+
+        .commitment-stat .label {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+        }
+
+        /* === APPROACH STEPS === */
+        .approach-section {
+            background-color: var(--bg-light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .step-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .step-content {
+            padding: 25px;
+            position: relative;
+        }
+
+        .step-badge {
+            position: absolute;
+            top: -20px;
+            left: 25px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .step-content h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* === CTA SECTION === */
+        .cta {
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .cta h2 {
+            color: var(--text-light);
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta .btn {
+            margin: 10px;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--text-light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-orange);
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            width: 20px;
+            color: var(--accent-orange);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-info i {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .newsletter-input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-input:focus {
+            outline: 2px solid var(--accent-orange);
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .btn-newsletter {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-newsletter:hover {
+            background-color: #e07b2f;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .mission-row, .mission-row.reverse, .values-row, .values-row.reverse {
+                flex-direction: column;
+            }
+
+            .objectives-grid, .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255,255,255,0.1);
+                margin-top: 10px;
+                display: none;
+            }
+
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-item {
+                color: var(--text-light);
+            }
+
+            .page-header {
+                height: 200px;
+            }
+
+            .objectives-grid, .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-list {
+                grid-template-columns: 1fr;
+            }
+
+            .commitment-stats {
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="About_us.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-file-pdf"></i> Download Reports</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Mission & Vision</h1>
+            <p>Discover what drives us and the future we're working to create</p>
+            <div class="breadcrumb">
+                <a href="#">Home</a> <span>></span> <a href="#">About</a> <span>></span> <span>Mission & Vision</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION (Image + Texte) -->
+    <section class="mission-section">
+        <div class="container">
+            <!-- Vision Row -->
+            <div class="mission-row">
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Vision - Community with dignity">
+                </div>
+                <div class="mission-content">
+                    <div class="mission-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h2>Our Vision</h2>
+                    <h3>A future of dignity and opportunity for all</h3>
+                    <p>A society where refugees, displaced persons, survivors of violence, and vulnerable host communities live with dignity, equal opportunities, and sustainable livelihoods.</p>
+                    <div class="highlight-box">
+                        <p>"We envision a world where displacement does not mean despair, where every person has the chance to rebuild their life with hope and purpose."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Row (reverse) -->
+            <div class="mission-row reverse">
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Mission - Empowering communities">
+                </div>
+                <div class="mission-content">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h2>Our Mission</h2>
+                    <h3>Empowering the most vulnerable</h3>
+                    <p>To empower refugees, asylum seekers, survivors of sexual and gender-based violence, and vulnerable host communities through protection, education, skills development, psychosocial support, and sustainable livelihood programs.</p>
+                    <div class="highlight-box">
+                        <p>"We work alongside communities, building on their strengths and accompanying them on their journey toward self-reliance."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIC OBJECTIVES (avec images) -->
+    <section class="objectives-section">
+        <div class="container">
+            <h2>Our Strategic Objectives</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">These are the key pillars that guide our work and help us achieve our mission.</p>
+            
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-image">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Protection">
+                    </div>
+                    <div class="objective-content">
+                        <div class="objective-number">01</div>
+                        <h3>Protection & Safety</h3>
+                        <p>Ensure the protection of refugees and survivors through legal aid, safe spaces, and advocacy.</p>
+                    </div>
+                </div>
+
+                <div class="objective-card">
+                    <div class="objective-image">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Education">
+                    </div>
+                    <div class="objective-content">
+                        <div class="objective-number">02</div>
+                        <h3>Education & Skills</h3>
+                        <p>Provide access to quality education and vocational training for youth and adults.</p>
+                    </div>
+                </div>
+
+                <div class="objective-card">
+                    <div class="objective-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Health">
+                    </div>
+                    <div class="objective-content">
+                        <div class="objective-number">03</div>
+                        <h3>Health & Wellbeing</h3>
+                        <p>Promote physical and mental health through community health programs and psychosocial support.</p>
+                    </div>
+                </div>
+
+                <div class="objective-card">
+                    <div class="objective-image">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Economic Empowerment">
+                    </div>
+                    <div class="objective-content">
+                        <div class="objective-number">04</div>
+                        <h3>Economic Empowerment</h3>
+                        <p>Create sustainable livelihood opportunities through skills training and access to capital.</p>
+                    </div>
+                </div>
+
+                <div class="objective-card">
+                    <div class="objective-image">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Community Integration">
+                    </div>
+                    <div class="objective-content">
+                        <div class="objective-number">05</div>
+                        <h3>Community Integration</h3>
+                        <p>Foster social cohesion between refugees and host communities.</p>
+                    </div>
+                </div>
+
+                <div class="objective-card">
+                    <div class="objective-image">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Advocacy">
+                    </div>
+                    <div class="objective-content">
+                        <div class="objective-number">06</div>
+                        <h3>Advocacy & Rights</h3>
+                        <p>Advocate for the rights of displaced persons and influence policies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES SECTION (Image + Valeurs en grille) -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Values That Guide Us</h2>
+            
+            <div class="values-row">
+                <div class="values-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Team working together">
+                </div>
+                <div class="values-list">
+                    <div class="value-tag">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Human Dignity</h4>
+                        <p>Respecting every person's inherent worth</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-balance-scale"></i>
+                        <h4>Equity & Inclusion</h4>
+                        <p>Equal access for all</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-file-contract"></i>
+                        <h4>Transparency</h4>
+                        <p>Open and accountable</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-users"></i>
+                        <h4>Community Participation</h4>
+                        <p>Communities lead the way</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Empowerment</h4>
+                        <p>Building self-reliance</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-gavel"></i>
+                        <h4>Human Rights</h4>
+                        <p>Protecting fundamental rights</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Sustainability</h4>
+                        <p>Creating lasting change</p>
+                    </div>
+                    <div class="value-tag">
+                        <i class="fas fa-heart"></i>
+                        <h4>Compassion</h4>
+                        <p>Kindness in action</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMITMENT SECTION -->
+    <section class="commitment-section">
+        <div class="container">
+            <h2>Our Commitment in Numbers</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">Every day, we work to turn our vision into reality for thousands of people.</p>
+            
+            <div class="commitment-stats">
+                <div class="commitment-stat">
+                    <span class="number">7+</span>
+                    <span class="label">Years of Service</span>
+                </div>
+                <div class="commitment-stat">
+                    <span class="number">1,000+</span>
+                    <span class="label">Lives Impacted</span>
+                </div>
+                <div class="commitment-stat">
+                    <span class="number">10</span>
+                    <span class="label">Communities</span>
+                </div>
+                <div class="commitment-stat">
+                    <span class="number">6</span>
+                    <span class="label">Program Areas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH STEPS (avec images) -->
+    <section class="approach-section">
+        <div class="container">
+            <h2>How We Achieve Our Mission</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Our approach combines direct service delivery with community participation and advocacy.</p>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Listen">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-badge">1</div>
+                        <h3>Listen & Understand</h3>
+                        <p>We begin by listening to communities to understand their needs and aspirations.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Co-design">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-badge">2</div>
+                        <h3>Co-Design Solutions</h3>
+                        <p>We work with communities to design programs that are contextually appropriate.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Implement">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-badge">3</div>
+                        <h3>Implement Together</h3>
+                        <p>We implement programs in partnership with local actors and community members.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Monitor">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-badge">4</div>
+                        <h3>Monitor & Learn</h3>
+                        <p>We continuously monitor our impact and learn from both successes and challenges.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Advocate">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-badge">5</div>
+                        <h3>Advocate for Change</h3>
+                        <p>We use evidence to advocate for policy changes at local and national levels.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Scale">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-badge">6</div>
+                        <h3>Scale & Sustain</h3>
+                        <p>We scale successful interventions and ensure their long-term sustainability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Support Our Mission</h2>
+            <p>Your support helps us turn our vision into reality for thousands of vulnerable people.</p>
+            <a href="#" class="btn btn-primary">Donate Now</a>
+            <a href="#" class="btn btn-outline-light">Get Involved</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>Achil Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 123 456 789<br>
+                                +256 987 654 321
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achildevinfoundation.org<br>
+                                partnerships@achildevinfoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form class="newsletter-form">
+                        <input type="text" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achil Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Dropdown management on mobile
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

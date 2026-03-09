@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Home</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* === VARIABLES AND GLOBAL STYLES === */
+        :root {
+            --primary-dark: #0a2f44;
+            --primary-blue: #1e4a6d;
+            --accent-orange: #f39237;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #6c757d;
+            --bg-light: #f8f9fa;
+            --footer-bg: #052233;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --navbar-bg: rgba(10, 47, 68, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* To compensate for fixed navbar */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: #e07b2f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        /* === FIXED NAVIGATION WITH LOGO AND DROPDOWN MENUS === */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 5%;
+            background-color: var(--primary-dark);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            max-height: 50px;
+            width: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 5px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-placeholder {
+            max-height: 50px;
+            width: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Main menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            border-left-color: var(--accent-orange);
+            color: var(--accent-orange);
+            padding-left: 25px;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION WITH CAROUSEL === */
+        .hero {
+            position: relative;
+            height: calc(100vh - 80px);
+            min-height: 700px;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 47, 68, 0.8) 0%, rgba(10, 47, 68, 0.6) 100%);
+        }
+
+        .slide1 {
+            background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+
+        .slide2 {
+            background-image: url('https://images.unsplash.com/photo-1488521787991-56cbf6c5df4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+
+        .slide3 {
+            background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+
+        .slide4 {
+            background-image: url('https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            color: var(--text-light);
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .indicator.active {
+            background-color: var(--accent-orange);
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background-color: var(--text-light);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .carousel-arrow:hover {
+            background-color: var(--accent-orange);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* === ABOUT SECTION === */
+        .about {
+            background-color: var(--bg-light);
+        }
+
+        .about .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* === IMPACT SECTION === */
+        .impact {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        .impact h2 {
+            color: var(--text-light);
+        }
+
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* === APPROACH SECTION === */
+        .approach {
+            background-color: var(--text-light);
+            padding: 80px 0;
+        }
+
+        .approach h2 {
+            margin-bottom: 50px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .approach-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 400px;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .approach-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .approach-card:hover .approach-image {
+            transform: scale(1.1);
+        }
+
+        .approach-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.7));
+            color: var(--text-light);
+            padding: 30px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .approach-card:hover .approach-overlay {
+            transform: translateY(0);
+        }
+
+        .approach-overlay h3 {
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .approach-overlay p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .approach-overlay ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .approach-overlay li {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .approach-overlay li i {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+        }
+
+        /* Alternative style for cards */
+        .approach-card-alt {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .approach-card-alt .approach-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .approach-card-alt .approach-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 47, 68, 0.95), transparent);
+            color: var(--text-light);
+            padding: 30px;
+        }
+
+        .approach-card-alt h3 {
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+        }
+
+        .approach-card-alt p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+        }
+
+        /* === PROGRAMS PREVIEW SECTION === */
+        .programs-preview {
+            background-color: var(--bg-light);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom-color: var(--accent-orange);
+        }
+
+        .program-card i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .program-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .program-card p {
+            font-size: 0.95rem;
+        }
+
+        .programs-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* === CALL TO ACTION (CTA) SECTION === */
+        .cta {
+            background: linear-gradient(rgba(30, 74, 109, 0.9), rgba(30, 74, 109, 0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .cta h2 {
+            color: var(--text-light);
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta .btn {
+            margin: 10px;
+        }
+
+        /* === FOOTER STYLES === */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--text-light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-orange);
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            width: 20px;
+            color: var(--accent-orange);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-info i {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .newsletter-input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-input:focus {
+            outline: 2px solid var(--accent-orange);
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .btn-newsletter {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-newsletter:hover {
+            background-color: #e07b2f;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-menu {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 2rem; }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255,255,255,0.1);
+                margin-top: 10px;
+                display: none;
+            }
+
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-item {
+                color: var(--text-light);
+            }
+
+            .dropdown-item:hover {
+                background-color: rgba(255,255,255,0.2);
+            }
+
+            .hero {
+                height: 100vh;
+                min-height: 600px;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .carousel-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .about .container {
+                flex-direction: column;
+            }
+
+            .impact-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-card {
+                height: 350px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION WITH LOGO AND DROPDOWN MENUS -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <!-- LOGO PLACEHOLDER -->
+            <div class="logo-placeholder">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main menu with dropdowns -->
+        <ul class="nav-menu">
+            <!-- Home with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <!-- About with dropdown -->
+            <li class="nav-item">
+                <a href="About_us.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="About_us.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <!-- Programs with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <!-- Impact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-file-pdf"></i> Download Reports</a>
+                </div>
+            </li>
+
+            <!-- Approach with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <!-- Contact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION WITH CAROUSEL -->
+    <section class="hero">
+        <div class="carousel">
+            <div class="carousel-slide slide1 active"></div>
+            <div class="carousel-slide slide2"></div>
+            <div class="carousel-slide slide3"></div>
+            <div class="carousel-slide slide4"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Empowering Refugees and Vulnerable Communities</h1>
+            <p>Achil Devine Foundation Limited works to empower refugees, survivors of violence, and vulnerable host communities through education, protection, health, and sustainable livelihoods.</p>
+            <a href="#" class="btn btn-primary">Our Programs</a>
+            <a href="#" class="btn btn-secondary">Get Involved</a>
+            <a href="#" class="btn btn-primary" style="background-color: var(--primary-blue);">Donate</a>
+        </div>
+
+        <div class="carousel-indicators">
+            <span class="indicator active" onclick="currentSlide(0)"></span>
+            <span class="indicator" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+            <span class="indicator" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class="carousel-arrow prev" onclick="changeSlide(-1)">❮</div>
+        <div class="carousel-arrow next" onclick="changeSlide(1)">❯</div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="container">
+            <div class="about-text">
+                <h2>About Achil Devine Foundation Limited</h2>
+                <p>Achil Devine Foundation Limited is a humanitarian and community development organization dedicated to supporting refugees, asylum seekers, survivors of gender-based violence, and vulnerable host communities.</p>
+                <p>Through education, livelihood programs, health services, and advocacy, we aim to create opportunities that promote dignity, self-reliance, and sustainable development.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community supported by the foundation">
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT SECTION -->
+    <section class="impact">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1,000+</span>
+                    <span class="stat-label">people supported</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500</span>
+                    <span class="stat-label">youth trained</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">300</span>
+                    <span class="stat-label">women empowered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">communities reached</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH SECTION -->
+    <section class="approach">
+        <div class="container">
+            <h2>Our Approach</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 1.1rem;">We adopt a holistic and participatory approach for sustainable and transformative impact.</p>
+            
+            <div class="approach-grid">
+                <!-- Card 1: Participatory Approach -->
+                <div class="approach-card">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Participatory approach" class="approach-image">
+                    <div class="approach-overlay">
+                        <h3>Participatory</h3>
+                        <p>We actively involve communities in the design and implementation of our programs.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Community consultations</li>
+                            <li><i class="fas fa-check-circle"></i> Collective decision-making</li>
+                            <li><i class="fas fa-check-circle"></i> Local leadership</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Holistic Approach -->
+                <div class="approach-card">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Holistic approach" class="approach-image">
+                    <div class="approach-overlay">
+                        <h3>Holistic</h3>
+                        <p>We address challenges from all angles: social, economic, health, and psychological.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Physical and mental health</li>
+                            <li><i class="fas fa-check-circle"></i> Economic empowerment</li>
+                            <li><i class="fas fa-check-circle"></i> Psychosocial support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sustainable Approach -->
+                <div class="approach-card">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sustainable approach" class="approach-image">
+                    <div class="approach-overlay">
+                        <h3>Sustainable</h3>
+                        <p>We build solutions that last beyond our immediate intervention.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Capacity building</li>
+                            <li><i class="fas fa-check-circle"></i> Local partnerships</li>
+                            <li><i class="fas fa-check-circle"></i> Monitoring & evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second row with alternative style -->
+            <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                <div class="approach-card-alt">
+                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Inclusive approach" class="approach-image">
+                    <div class="approach-content">
+                        <h3>Inclusive</h3>
+                        <p>We reach the most vulnerable, including persons with disabilities and survivors of violence.</p>
+                    </div>
+                </div>
+                <div class="approach-card-alt">
+                    <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Innovative approach" class="approach-image">
+                    <div class="approach-content">
+                        <h3>Innovative</h3>
+                        <p>We use creative and technological solutions to maximize our impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS PREVIEW SECTION -->
+    <section class="programs-preview">
+        <div class="container">
+            <h2>Our Programs</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">We work in several key areas for sustainable and holistic impact.</p>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Livelihood Programs</h3>
+                    <p>Vocational training and employment support for economic independence.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Agriculture Programs</h3>
+                    <p>Promoting food security through sustainable agricultural techniques.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Mental Health Programs</h3>
+                    <p>Psychosocial support to heal trauma and build resilience.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-hospital"></i>
+                    <h3>Community Health Programs</h3>
+                    <p>Access to primary healthcare and disease prevention.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-apple-alt"></i>
+                    <h3>Nutrition Programs</h3>
+                    <p>Fighting malnutrition among children and mothers.</p>
+                </div>
+                <div class="program-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Refugee Rights & Advocacy</h3>
+                    <p>Defending rights and access to justice for displaced persons.</p>
+                </div>
+            </div>
+            <div class="programs-link">
+                <a href="#" class="btn btn-outline">View All Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join us in building a future where refugees and vulnerable communities live with dignity and opportunity.</h2>
+            <p>Your support can change lives. Get involved with us today.</p>
+            <a href="#" class="btn btn-primary">Volunteer</a>
+            <a href="#" class="btn btn-secondary">Partner With Us</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achil Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links --> 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 123 456 789<br>
+                                +256 987 654 321
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achildevinfoundation.org<br>
+                                partnerships@achildevinfoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form class="newsletter-form">
+                        <input type="text" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achil Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Carousel
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let autoSlideInterval;
+
+        function showSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            indicators[index].classList.add('active');
+
+            currentSlideIndex = index;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+            resetAutoSlide();
+        }
+
+        function currentSlide(index) {
+            showSlide(index);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                showSlide(currentSlideIndex + 1);
+            }, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        window.addEventListener('load', () => {
+            startAutoSlide();
+        });
+
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Dropdown management on mobile
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

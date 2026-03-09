@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Who We Are</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* === VARIABLES AND GLOBAL STYLES === */
+        :root {
+            --primary-dark: #0a2f44;
+            --primary-blue: #1e4a6d;
+            --accent-orange: #f39237;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #6c757d;
+            --bg-light: #f8f9fa;
+            --footer-bg: #052233;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --navbar-bg: rgba(10, 47, 68, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: #e07b2f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        /* === NAVIGATION === */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 5%;
+            background-color: var(--primary-dark);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            max-height: 50px;
+            width: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            border-left-color: var(--accent-orange);
+            color: var(--accent-orange);
+            padding-left: 25px;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === PAGE HEADER === */
+        .page-header {
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .page-header h1 {
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 15px;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* === WHO WE ARE CONTENT === */
+        .who-we-are-intro {
+            background-color: var(--text-light);
+        }
+
+        .who-we-are-intro .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .intro-text {
+            flex: 1;
+        }
+
+        .intro-text h2 {
+            text-align: left;
+            color: var(--primary-dark);
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .intro-image {
+            flex: 1;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .highlight {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        /* === HISTORY TIMELINE === */
+        .history {
+            background-color: var(--bg-light);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-orange);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--text-light);
+            border: 4px solid var(--accent-orange);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--text-light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            margin-bottom: 0;
+        }
+
+        /* === OUR APPROACH === */
+        .approach-summary {
+            background-color: var(--text-light);
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .approach-item {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .approach-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .approach-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .approach-item h3 {
+            margin-bottom: 15px;
+        }
+
+        .approach-item p {
+            margin-bottom: 0;
+        }
+
+        /* === WHERE WE WORK === */
+        .where-we-work {
+            background-color: var(--bg-light);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .location-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .location-info {
+            padding: 20px;
+        }
+
+        .location-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .location-info p {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-info i {
+            color: var(--accent-orange);
+        }
+
+        /* === CTA SECTION === */
+        .cta {
+            background: linear-gradient(rgba(30, 74, 109, 0.9), rgba(30, 74, 109, 0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .cta h2 {
+            color: var(--text-light);
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta .btn {
+            margin: 10px;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--text-light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-orange);
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            width: 20px;
+            color: var(--accent-orange);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-info i {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .newsletter-input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-input:focus {
+            outline: 2px solid var(--accent-orange);
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .btn-newsletter {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-newsletter:hover {
+            background-color: #e07b2f;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .who-we-are-intro .container {
+                flex-direction: column;
+            }
+            
+            .intro-text h2 {
+                text-align: center;
+            }
+            
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255,255,255,0.1);
+                margin-top: 10px;
+                display: none;
+            }
+
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-item {
+                color: var(--text-light);
+            }
+
+            .page-header {
+                height: 200px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="About_us.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-file-pdf"></i> Download Reports</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Who We Are</h1>
+            <p>Discover our story, our identity, and what drives us forward</p>
+            <div class="breadcrumb">
+                <a href="#">Home</a> <span>></span> <a href="#">About</a> <span>></span> <span>Who We Are</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE ARE INTRO -->
+    <section class="who-we-are-intro">
+        <div class="container">
+            <div class="intro-text">
+                <h2>About Achil Devine Foundation Limited</h2>
+                <p><span class="highlight">Achil Devine Foundation Limited</span> is a humanitarian and community development organization dedicated to supporting refugees, asylum seekers, survivors of gender-based violence, and vulnerable host communities.</p>
+                <p>Founded in 2015, we have grown from a small grassroots initiative to a recognized organization working across multiple regions. Our name represents the fusion of two families united by a common vision: <span class="highlight">"Achil"</span> symbolizing strength and resilience in local languages, and <span class="highlight">"Devine"</span> representing our belief in the divine dignity of every human being.</p>
+                <p>We believe that every person, regardless of their circumstances, deserves to live with dignity, access opportunities, and build a sustainable future for themselves and their families.</p>
+            </div>
+            <div class="intro-image">
+                <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Foundation team">
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR HISTORY TIMELINE -->
+    <section class="history">
+        <div class="container">
+            <h2>Our Journey</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;">From humble beginnings to expanding impact, here are the key milestones in our organization's history.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2015</h3>
+                        <p>Foundation established by Sarah Achil and John Devine to support 50 refugee families in Kampala.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2017</h3>
+                        <p>Expanded programs to include mental health support and vocational training for youth.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Reached 500+ beneficiaries and opened second office in Northern Uganda.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Launched agriculture programs and formed partnerships with 5 international NGOs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Celebrated supporting over 1,000 individuals across 10 communities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Expanding to new regions with innovative livelihood and health programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR APPROACH SUMMARY -->
+    <section class="approach-summary">
+        <div class="container">
+            <h2>What Guides Us</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;">Our work is built on these foundational principles that shape every program we implement.</p>
+            
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>People-Centered</h3>
+                    <p>We place the needs and aspirations of communities at the center of everything we do.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Collaborative</h3>
+                    <p>We work hand-in-hand with communities, partners, and local authorities.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable</h3>
+                    <p>We build solutions that last beyond our direct intervention.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Evidence-Based</h3>
+                    <p>We use data and learning to continuously improve our programs.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Compassionate</h3>
+                    <p>We approach our work with empathy, respect, and kindness.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Accountable</h3>
+                    <p>We are transparent and responsible to our beneficiaries and donors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHERE WE WORK -->
+    <section class="where-we-work">
+        <div class="container">
+            <h2>Where We Work</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;">We currently operate in these locations, with plans to expand to more communities in need.</p>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1508780709613-9b0d5e70a5e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kampala" class="location-image">
+                    <div class="location-info">
+                        <h3>Kampala, Uganda</h3>
+                        <p><i class="fas fa-map-pin"></i> Head Office</p>
+                        <p><i class="fas fa-users"></i> Serving 500+ families</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1565048801147-1026c2b4b6f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Northern Uganda" class="location-image">
+                    <div class="location-info">
+                        <h3>Gulu, Northern Uganda</h3>
+                        <p><i class="fas fa-map-pin"></i> Regional Office</p>
+                        <p><i class="fas fa-users"></i> Serving 300+ families</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Refugee Settlement" class="location-image">
+                    <div class="location-info">
+                        <h3>Bidibidi Refugee Settlement</h3>
+                        <p><i class="fas fa-map-pin"></i> Field Office</p>
+                        <p><i class="fas fa-users"></i> Serving 200+ families</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Nakivale" class="location-image">
+                    <div class="location-info">
+                        <h3>Nakivale Refugee Settlement</h3>
+                        <p><i class="fas fa-map-pin"></i> Field Office</p>
+                        <p><i class="fas fa-users"></i> Serving 150+ families</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Want to Learn More About Us?</h2>
+            <p>Explore our mission, meet our team, or discover how you can get involved.</p>
+            <a href="#" class="btn btn-primary">Our Mission & Vision</a>
+            <a href="#" class="btn btn-secondary" style="background-color: transparent; color: white; border: 2px solid white;">Meet Our Team</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>Achil Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 123 456 789<br>
+                                +256 987 654 321
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achildevinfoundation.org<br>
+                                partnerships@achildevinfoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form class="newsletter-form">
+                        <input type="text" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achil Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Dropdown management on mobile
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

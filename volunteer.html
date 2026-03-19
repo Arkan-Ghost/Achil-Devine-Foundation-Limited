@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Volunteer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+</head>
+<body>
+    <!-- Navigation (identique à index.html) -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <img src="./img/ADFL.png" alt="Achil Devine Foundation Logo" class="logo-image">
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <!-- Même menu que dans index.html -->
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Volunteer With Us</h1>
+            <p>Make a difference in the lives of refugees and vulnerable communities</p>
+        </div>
+    </section>
+
+    <!-- Volunteer Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <i class="fas fa-hands-helping"></i>
+                    <h2>Volunteer Application</h2>
+                    <p>Join our team of dedicated volunteers and help us create lasting change.</p>
+                </div>
+
+                <form id="volunteerForm" class="styled-form ajax-form" action="./php/process_volunteer.php" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full_name">Full Name *</label>
+                            <input type="text" id="full_name" name="full_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills">Skills and Experience</label>
+                        <textarea id="skills" name="skills" rows="4" placeholder="Tell us about your skills, experience, and what you can contribute"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="availability">Availability *</label>
+                            <select id="availability" name="availability" required>
+                                <option value="">Select availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="evenings">Evenings</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Commitment Duration</label>
+                            <select id="duration" name="duration">
+                                <option value="">Select duration</option>
+                                <option value="short-term">Short-term (1-3 months)</option>
+                                <option value="medium-term">Medium-term (3-6 months)</option>
+                                <option value="long-term">Long-term (6+ months)</option>
+                                <option value="ongoing">Ongoing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to volunteer? *</label>
+                        <textarea id="motivation" name="message" rows="5" required placeholder="Tell us why you're interested in volunteering with us"></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a> and <a href="#" target="_blank">privacy policy</a></label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
+                        <a href="index.html" class="btn btn-outline">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Volunteer Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Volunteer With Us?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Make a Difference</h3>
+                    <p>Directly impact the lives of refugees and vulnerable communities.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Join a Community</h3>
+                    <p>Become part of a passionate team dedicated to positive change.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Develop Skills</h3>
+                    <p>Gain valuable experience in humanitarian work and community development.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Cultural Exchange</h3>
+                    <p>Work with people from diverse backgrounds and cultures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Même footer que index.html -->
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            const transaction = urlParams.get('transaction');
+            
+            if (success === 'submitted') {
+                if (transaction) {
+                    alert(`Thank you for your donation! Your transaction ID is: ${transaction}`);
+                } else {
+                    alert('Thank you! Your submission has been received.');
+                }
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'missing_fields') message = 'Please fill in all required fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email address.';
+                if (error === 'invalid_website') message = 'Please enter a valid website URL.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                if (error === 'invalid') message = 'Invalid request.';
+                
+                alert(message);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

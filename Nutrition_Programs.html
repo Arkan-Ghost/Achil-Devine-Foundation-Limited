@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achile Devine Foundation - Nutrition Programs</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <!-- Page Specific CSS - Style organique pour Nutrition -->
+    <style>
+        /* === PAGE SPECIFIC STYLES FOR NUTRITION PROGRAMS PAGE === */
+        :root {
+            --primary-green: #2d5a4b;      /* Vert profond pour la nutrition */
+            --secondary-green: #5f8b7a;    /* Vert plus doux */
+            --accent-coral: #ff7f5c;        /* Corail chaud pour l'accent */
+            --accent-yellow: #f9c74f;       /* Jaune doux */
+            --text-light: #ffffff;
+            --text-dark: #2d3e3a;
+            --text-soft: #5a6e68;
+            --bg-cream: #faf7f2;            /* Fond crème organique */
+            --bg-soft-green: #e8f0ed;        /* Vert très doux */
+        }
+
+        /* Page Header Override - Style organique */
+        .page-header {
+            background: linear-gradient(135deg, rgba(45, 90, 75, 0.95), rgba(45, 90, 75, 0.8)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            clip-path: ellipse(100% 90% at 50% 10%);
+        }
+
+        .page-header h1 {
+            animation: fadeInUp 1s ease;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .page-header .breadcrumb {
+            margin-top: 15px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .page-header .breadcrumb a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+
+        .page-header .breadcrumb span {
+            color: rgba(255,255,255,0.7);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Program Intro - Style circulaire */
+        .program-intro {
+            background-color: var(--bg-cream);
+        }
+
+        .program-intro .intro-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .program-intro .intro-image {
+            flex: 1;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            overflow: hidden;
+            box-shadow: 0 30px 40px -20px rgba(45, 90, 75, 0.4);
+            border: 8px solid white;
+            transition: all 0.5s ease;
+        }
+
+        .program-intro .intro-image:hover {
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        }
+
+        .program-intro .intro-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .program-intro .intro-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .program-intro .intro-content {
+            flex: 1;
+        }
+
+        .program-intro .program-icon {
+            font-size: 3rem;
+            color: var(--accent-coral);
+            margin-bottom: 20px;
+            background-color: rgba(255, 127, 92, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .program-intro .intro-content h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+
+        .program-intro .intro-content h2:after {
+            left: 0;
+            transform: none;
+            background-color: var(--accent-coral);
+        }
+
+        .program-intro .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--text-soft);
+        }
+
+        .program-intro .highlight-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-yellow);
+        }
+
+        .program-intro .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+
+        /* Program Components - Cartes rondes */
+        .components-section {
+            background-color: var(--bg-soft-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .components-section:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 199, 79, 0.1);
+            border-radius: 50%;
+        }
+
+        .components-section:after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background-color: rgba(255, 127, 92, 0.1);
+            border-radius: 50%;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .component-card {
+            background-color: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(45, 90, 75, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .component-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 25px 45px rgba(45, 90, 75, 0.2);
+        }
+
+        .component-image {
+            height: 200px;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .component-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .component-card:hover .component-image img {
+            transform: scale(1.15);
+        }
+
+        .component-content {
+            padding: 30px 25px 35px;
+            text-align: center;
+        }
+
+        .component-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-coral), var(--accent-yellow));
+            color: var(--text-light);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: -50px auto 20px;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 10px 20px rgba(255, 127, 92, 0.3);
+            transform: rotate(5deg);
+        }
+
+        .component-content h3 {
+            margin-bottom: 12px;
+            color: var(--primary-green);
+        }
+
+        .component-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        /* Nutrition Services - Tabs */
+        .services-section {
+            background-color: var(--bg-cream);
+        }
+
+        .services-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .service-tab {
+            flex: 1 1 calc(33.333% - 20px);
+            background-color: white;
+            padding: 35px 25px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            cursor: pointer;
+        }
+
+        .service-tab:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-color: transparent;
+        }
+
+        .service-tab:hover .service-icon,
+        .service-tab:hover h3,
+        .service-tab:hover p {
+            color: white;
+        }
+
+        .service-tab .service-icon {
+            font-size: 2.8rem;
+            color: var(--accent-coral);
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
+        }
+
+        .service-tab h3 {
+            transition: color 0.4s ease;
+            margin-bottom: 10px;
+            color: var(--primary-green);
+        }
+
+        .service-tab p {
+            transition: color 0.4s ease;
+            margin-bottom: 0;
+            color: var(--text-soft);
+        }
+
+        /* Target Groups - Bulles */
+        .target-section {
+            background-color: var(--bg-soft-green);
+            position: relative;
+        }
+
+        .target-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .bubble-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 15px 30px rgba(45, 90, 75, 0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .bubble-item:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-coral);
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+        }
+
+        .bubble-item:hover i,
+        .bubble-item:hover h3,
+        .bubble-item:hover p {
+            color: white;
+        }
+
+        .bubble-item i {
+            font-size: 2.2rem;
+            color: var(--accent-coral);
+            margin-bottom: 8px;
+            transition: color 0.4s ease;
+        }
+
+        .bubble-item h3 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+            transition: color 0.4s ease;
+            color: var(--primary-green);
+        }
+
+        .bubble-item p {
+            font-size: 0.75rem;
+            margin-bottom: 0;
+            transition: color 0.4s ease;
+            color: var(--text-soft);
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
+        .impact-stats:before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .impact-stats:after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .impact-stats h2 {
+            color: var(--text-light);
+        }
+
+        .impact-stats h2:after {
+            background-color: var(--accent-yellow);
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            display: block;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Interventions - Cartes inclinées */
+        .interventions-section {
+            background-color: var(--bg-cream);
+        }
+
+        .interventions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .intervention-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            display: flex;
+            transition: all 0.5s ease;
+            transform: rotate(0deg);
+        }
+
+        .intervention-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .intervention-card:nth-child(odd) {
+            transform: rotate(-1deg);
+        }
+
+        .intervention-card:hover {
+            transform: rotate(0deg) translateY(-10px);
+            box-shadow: 0 25px 45px rgba(45, 90, 75, 0.15);
+        }
+
+        .intervention-icon {
+            width: 100px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .intervention-content {
+            flex: 1;
+            padding: 25px;
+        }
+
+        .intervention-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-green);
+        }
+
+        .intervention-content p {
+            margin-bottom: 15px;
+            color: var(--text-soft);
+        }
+
+        .intervention-tag {
+            display: inline-block;
+            background-color: var(--bg-soft-green);
+            color: var(--primary-green);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Success Stories - Témoignages */
+        .success-stories {
+            background-color: var(--bg-soft-green);
+            position: relative;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(45, 90, 75, 0.08);
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(45, 90, 75, 0.15);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: rgba(255, 127, 92, 0.1);
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-coral);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            margin-bottom: 0;
+            color: var(--accent-coral);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            color: var(--text-soft);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="10" cy="10" r="10"/><circle cx="90" cy="90" r="20"/><circle cx="30" cy="70" r="15"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            color: var(--text-light);
+        }
+
+        .cta-section h2:after {
+            background-color: var(--accent-yellow);
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* === RESPONSIVE (Page Specific) === */
+        @media (max-width: 1024px) {
+            .program-intro .intro-row {
+                flex-direction: column;
+            }
+
+            .components-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .interventions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-tab {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                height: 300px;
+                clip-path: ellipse(120% 90% at 50% 10%);
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bubble-item {
+                width: 130px;
+                height: 130px;
+            }
+
+            .stats-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+            }
+
+            .intervention-card {
+                flex-direction: column;
+            }
+
+            .intervention-icon {
+                width: 100%;
+                height: 80px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION WITH LOGO AND DROPDOWN MENUS -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <!-- LOGO IMAGE -->
+            <img src="./img/ADFL.png" alt="Achile Devine Foundation Logo" class="logo-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image doesn't load -->
+            <div class="logo-fallback">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main menu with dropdowns -->
+        <ul class="nav-menu" id="navMenu">
+            <!-- Home with dropdown -->
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <!-- About with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <!-- Programs with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <!-- Impact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Our_Results.html" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="Success_Stories.html" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                </div>
+            </li>
+
+            <!-- Approach with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <!-- Contact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nutrition Programs</h1>
+            <p>Nourishing bodies, empowering communities for a healthier future</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>></span> <a href="#">Programs</a> <span>></span> <span>Nutrition Programs</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM INTRO (Image + Texte - Style organique) -->
+    <section class="program-intro">
+        <div class="container">
+            <div class="intro-row">
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Healthy child eating">
+                </div>
+                <div class="intro-content">
+                    <div class="program-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h2>Nourishing Communities</h2>
+                    <p>Good nutrition is the foundation for healthy development, learning, and economic productivity. Our Nutrition Programs address malnutrition in all its forms, with a special focus on children under five, pregnant and lactating women, and other vulnerable groups.</p>
+                    <p>We combine direct nutritional support with education and sustainable food systems to create lasting improvements in community nutrition.</p>
+                    <div class="highlight-box">
+                        <p>"When children receive proper nutrition in their first 1000 days, they gain a foundation for lifelong health, learning, and prosperity."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM COMPONENTS - Cartes rondes -->
+    <section class="components-section">
+        <div class="container">
+            <h2>Program Components</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Our comprehensive approach to nutrition includes:</p>
+            
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Screening">
+                    </div>
+                    <div class="component-content">
+                        <div class="component-icon"><i class="fas fa-weight-scale"></i></div>
+                        <h3>Nutrition Screening</h3>
+                        <p>Regular screening of children and women to identify malnutrition early.</p>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Supplementation">
+                    </div>
+                    <div class="component-content">
+                        <div class="component-icon"><i class="fas fa-tablets"></i></div>
+                        <h3>Supplementation</h3>
+                        <p>Vitamin A, iron, and micronutrient powders for children and mothers.</p>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Treatment">
+                    </div>
+                    <div class="component-content">
+                        <div class="component-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3>Treatment of Malnutrition</h3>
+                        <p>Therapeutic feeding for severely malnourished children.</p>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="https://images.unsplash.com/photo-1516684737162-bfdf7a13e8f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Breastfeeding">
+                    </div>
+                    <div class="component-content">
+                        <div class="component-icon"><i class="fas fa-baby"></i></div>
+                        <h3>Breastfeeding Support</h3>
+                        <p>Counseling and support for exclusive breastfeeding.</p>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff0c61e0e7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Education">
+                    </div>
+                    <div class="component-content">
+                        <div class="component-icon"><i class="fas fa-chalkboard"></i></div>
+                        <h3>Nutrition Education</h3>
+                        <p>Cooking demonstrations and lessons on balanced diets.</p>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-image">
+                        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Food Security">
+                    </div>
+                    <div class="component-content">
+                        <div class="component-icon"><i class="fas fa-seedling"></i></div>
+                        <h3>Food Security</h3>
+                        <p>Linking nutrition with agriculture for sustainable food access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUTRITION SERVICES - Tabs -->
+    <section class="services-section">
+        <div class="container">
+            <h2>Nutrition Services</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">We provide these essential nutrition services to vulnerable groups.</p>
+            
+            <div class="services-tabs">
+                <div class="service-tab">
+                    <div class="service-icon"><i class="fas fa-child"></i></div>
+                    <h3>Child Nutrition</h3>
+                    <p>Growth monitoring, complementary feeding support, and treatment for acute malnutrition.</p>
+                </div>
+                <div class="service-tab">
+                    <div class="service-icon"><i class="fas fa-female"></i></div>
+                    <h3>Maternal Nutrition</h3>
+                    <p>Nutrition support during pregnancy and lactation, including iron-folate supplementation.</p>
+                </div>
+                <div class="service-tab">
+                    <div class="service-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Infant Feeding</h3>
+                    <p>Promotion of exclusive breastfeeding and appropriate complementary feeding.</p>
+                </div>
+                <div class="service-tab">
+                    <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Micronutrient Programs</h3>
+                    <p>Vitamin A supplementation, deworming, and multiple micronutrient powders.</p>
+                </div>
+                <div class="service-tab">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Growth Monitoring</h3>
+                    <p>Regular weighing and measurement to track child growth and development.</p>
+                </div>
+                <div class="service-tab">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Cooking Demos</h3>
+                    <p>Hands-on sessions showing how to prepare nutritious meals with local ingredients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET GROUPS - Bulles -->
+    <section class="target-section">
+        <div class="container">
+            <h2>Who We Reach</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Our nutrition programs prioritize the most vulnerable.</p>
+            
+            <div class="target-bubbles">
+                <div class="bubble-item">
+                    <i class="fas fa-child"></i>
+                    <h3>Children under 5</h3>
+                    <p>Growth monitoring & treatment</p>
+                </div>
+                <div class="bubble-item">
+                    <i class="fas fa-female"></i>
+                    <h3>Pregnant Women</h3>
+                    <p>Supplementation & education</p>
+                </div>
+                <div class="bubble-item">
+                    <i class="fas fa-baby"></i>
+                    <h3>Infants 0-24m</h3>
+                    <p>Breastfeeding support</p>
+                </div>
+                <div class="bubble-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Adolescents</h3>
+                    <p>Nutrition education</p>
+                </div>
+                <div class="bubble-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Chronically Ill</h3>
+                    <p>Therapeutic support</p>
+                </div>
+                <div class="bubble-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Elderly</h3>
+                    <p>Supplementation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT STATS -->
+    <section class="impact-stats">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">3,500+</span>
+                    <span class="stat-label">Children Reached</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Mothers Supported</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Recovery Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Community Nutrition Workers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERVENTIONS - Cartes inclinées -->
+    <section class="interventions-section">
+        <div class="container">
+            <h2>Key Interventions</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">How we address malnutrition in communities.</p>
+            
+            <div class="interventions-grid">
+                <div class="intervention-card">
+                    <div class="intervention-icon">
+                        <i class="fas fa-weight-scale"></i>
+                    </div>
+                    <div class="intervention-content">
+                        <h3>MUAC Screening</h3>
+                        <p>Community-based screening using Mid-Upper Arm Circumference to identify malnutrition early.</p>
+                        <span class="intervention-tag">Prevention</span>
+                    </div>
+                </div>
+                <div class="intervention-card">
+                    <div class="intervention-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="intervention-content">
+                        <h3>Supplementary Feeding</h3>
+                        <p>Providing nutrient-dense foods to moderately malnourished children and women.</p>
+                        <span class="intervention-tag">Treatment</span>
+                    </div>
+                </div>
+                <div class="intervention-card">
+                    <div class="intervention-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="intervention-content">
+                        <h3>Therapeutic Feeding</h3>
+                        <p>Outpatient treatment for severe acute malnutrition with ready-to-use therapeutic foods.</p>
+                        <span class="intervention-tag">Critical Care</span>
+                    </div>
+                </div>
+                <div class="intervention-card">
+                    <div class="intervention-icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <div class="intervention-content">
+                        <h3>Mother-to-Mother Support</h3>
+                        <p>Peer support groups where mothers share experiences and learn together.</p>
+                        <span class="intervention-tag">Empowerment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS STORIES - Témoignages -->
+    <section class="success-stories">
+        <div class="container">
+            <h2>Stories of Nourishment</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Real stories of transformation through our nutrition programs.</p>
+            
+            <div class="stories-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Grace">
+                        </div>
+                        <div class="author-info">
+                            <h4>Grace's Story</h4>
+                            <p>Mother of twins</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"When my twins were born prematurely, they were very small. Through the nutrition program, I learned how to breastfeed them properly and received supplements. Today they are healthy, active 2-year-olds."</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1598270647421-9b0b6d2a7b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Mary">
+                        </div>
+                        <div class="author-info">
+                            <h4>Mary's Journey</h4>
+                            <p>Nutrition volunteer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"After my own child recovered from malnutrition, I wanted to help others. I became a community nutrition volunteer and now support 30 families in my village with cooking demonstrations and screening."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Support Healthy Nutrition</h2>
+            <p>Help us provide life-saving nutrition support to children and mothers in need.</p>
+            <div class="cta-buttons">
+                <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                <a href="volunteer.html" class="btn btn-outline-light">Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achile Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="./futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 779 034 351<br>
+                                +256 740 995 887
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achiledevinefoundation.org<br>
+                                partnerships@achiledevinefoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form id="newsletterForm" class="newsletter-form" action="./php/process_newsletter.php" method="POST">
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achile Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript -->
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        // Afficher les messages d'erreur/succès depuis l'URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            
+            if (success === 'subscribed') {
+                alert('Thank you for subscribing to our newsletter!');
+                // Nettoyer l'URL sans recharger la page
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'invalid') message = 'Invalid request.';
+                if (error === 'missing_fields') message = 'Please fill in all fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email.';
+                if (error === 'already_subscribed') message = 'This email is already subscribed.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                
+                alert(message);
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

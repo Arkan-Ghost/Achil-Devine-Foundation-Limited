@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Partner With Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+</head>
+<body>
+    <!-- Navigation (identique à index.html) -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <img src="./img/ADFL.png" alt="Achil Devine Foundation Logo" class="logo-image">
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <!-- Même menu que dans index.html -->
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Partner With Us</h1>
+            <p>Collaborate with us to create sustainable change</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <i class="fas fa-handshake"></i>
+                    <h2>Partnership Application</h2>
+                    <p>Let's work together to empower communities and create lasting impact.</p>
+                </div>
+
+                <form id="partnerForm" class="styled-form ajax-form" action="./php/process_partner.php" method="POST">
+                    <div class="form-group">
+                        <label for="organization">Organization Name *</label>
+                        <input type="text" id="organization" name="organization" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact_person">Contact Person *</label>
+                            <input type="text" id="contact_person" name="contact_person" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position/Title</label>
+                            <input type="text" id="position" name="position">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="website">Website URL</label>
+                            <input type="url" id="website" name="website" placeholder="https://">
+                        </div>
+                        <div class="form-group">
+                            <label for="organization_type">Organization Type</label>
+                            <input type="text" id="organization_type" name="organization_type" placeholder="NGO, Corporate, Foundation, etc.">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="partnership_type">Type of Partnership Interested In *</label>
+                        <select id="partnership_type" name="partnership_type" required>
+                            <option value="">Select partnership type</option>
+                            <option value="financial">Financial Partner</option>
+                            <option value="technical">Technical Partner</option>
+                            <option value="implementing">Implementing Partner</option>
+                            <option value="advocacy">Advocacy Partner</option>
+                            <option value="research">Research Partner</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell us about your organization and partnership ideas *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Please describe your organization, mission, and how you envision partnering with us"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="past_collaboration">Past Collaboration Experience</label>
+                        <textarea id="past_collaboration" name="past_collaboration" rows="3" placeholder="Have you collaborated with other organizations? If so, please describe"></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I confirm that the information provided is accurate and I agree to the <a href="#" target="_blank">terms of partnership</a></label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Submit Partnership Request</button>
+                        <a href="index.html" class="btn btn-outline">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Benefits -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Partner With Us?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Shared Vision</h3>
+                    <p>Align your organization with a mission that creates real impact.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Extensive Network</h3>
+                    <p>Access our network of communities, partners, and stakeholders.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Measurable Impact</h3>
+                    <p>Track and report on the tangible outcomes of our collaboration.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Recognition</h3>
+                    <p>Gain visibility through our communications and events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><!-- Même footer --></footer>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            const transaction = urlParams.get('transaction');
+            
+            if (success === 'submitted') {
+                if (transaction) {
+                    alert(`Thank you for your donation! Your transaction ID is: ${transaction}`);
+                } else {
+                    alert('Thank you! Your submission has been received.');
+                }
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'missing_fields') message = 'Please fill in all required fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email address.';
+                if (error === 'invalid_website') message = 'Please enter a valid website URL.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                if (error === 'invalid') message = 'Invalid request.';
+                
+                alert(message);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achile Devine Foundation - Sustainable Approach</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <!-- Page Specific CSS -->
+    <style>
+        /* === PAGE SPECIFIC STYLES FOR SUSTAINABLE APPROACH PAGE === */
+        
+        /* Page Header Override */
+        .page-header {
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 300px;
+        }
+
+        /* Approach Intro */
+        .approach-intro .intro-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .approach-intro .intro-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .approach-intro .intro-image:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--accent-orange);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .approach-intro .intro-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .approach-intro .intro-content {
+            flex: 1;
+        }
+
+        .approach-intro .approach-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .approach-intro .intro-content h2 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .approach-intro .intro-content h2:after {
+            left: 0;
+            transform: none;
+        }
+
+        .approach-intro .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .approach-intro .highlight-box {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .approach-intro .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* Three Pillars */
+        .pillars-section {
+            background-color: var(--bg-light);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pillar-card {
+            background-color: var(--text-light);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent-orange));
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-orange);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .pillar-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .pillar-card p {
+            margin-bottom: 0;
+        }
+
+        /* Sustainability Principles */
+        .principles-section {
+            background-color: var(--text-light);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .principle-card {
+            display: flex;
+            gap: 20px;
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .principle-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-orange);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .principle-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .principle-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .principle-content p {
+            margin-bottom: 0;
+        }
+
+        /* Environmental Sustainability */
+        .environment-section {
+            background-color: var(--bg-light);
+        }
+
+        .environment-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .environment-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .environment-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .environment-content {
+            flex: 1;
+        }
+
+        .environment-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .environment-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            background-color: var(--text-light);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .environment-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .environment-list i {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        /* Capacity Building */
+        .capacity-section {
+            background-color: var(--text-light);
+        }
+
+        .capacity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .capacity-card {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .capacity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .capacity-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .capacity-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .capacity-card p {
+            margin-bottom: 0;
+        }
+
+        /* Case Study */
+        .case-study {
+            background-color: var(--bg-light);
+        }
+
+        .case-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .case-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .case-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .case-content {
+            flex: 1;
+        }
+
+        .case-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin: 20px 0;
+            padding: 20px;
+            background-color: var(--text-light);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .case-quote:before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-orange);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        .case-author {
+            font-weight: 600;
+            color: var(--accent-orange);
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background: linear-gradient(rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.95)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: var(--text-light);
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .impact-section h2 {
+            color: var(--text-light);
+        }
+
+        .impact-section h2:after {
+            background: var(--accent-orange);
+        }
+
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .impact-stat {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            display: block;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.95)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            text-align: center;
+            color: var(--text-light);
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            color: var(--text-light);
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* === RESPONSIVE (Page Specific) === */
+        @media (max-width: 1024px) {
+            .approach-intro .intro-row,
+            .case-row,
+            .environment-row {
+                flex-direction: column;
+            }
+
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capacity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pillars-grid,
+            .capacity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION WITH LOGO AND DROPDOWN MENUS -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <!-- LOGO IMAGE -->
+            <img src="./img/ADFL.png" alt="Achile Devine Foundation Logo" class="logo-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image doesn't load -->
+            <div class="logo-fallback">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main menu with dropdowns -->
+        <ul class="nav-menu" id="navMenu">
+            <!-- Home with dropdown -->
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <!-- About with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <!-- Programs with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <!-- Impact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Our_Results.html" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="Success_Stories.html" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                </div>
+            </li>
+
+            <!-- Approach with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <!-- Contact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Sustainable Approach</h1>
+            <p>Creating lasting change that endures beyond our intervention</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>></span> <a href="#">Approach</a> <span>></span> <span>Sustainable</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH INTRO -->
+    <section class="approach-intro">
+        <div class="container">
+            <div class="intro-row">
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sustainable development">
+                </div>
+                <div class="intro-content">
+                    <div class="approach-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h2>Building for the Long Term</h2>
+                    <p>Sustainability is at the heart of everything we do. We believe that true impact is measured not by what we achieve today, but by what lasts long after our programs end. Our sustainable approach ensures that communities have the capacity, resources, and systems to continue thriving independently.</p>
+                    <p>We focus on building local ownership, strengthening existing systems, and creating solutions that are environmentally, socially, and economically sustainable.</p>
+                    <div class="highlight-box">
+                        <p>"Give a man a fish and you feed him for a day. Teach a man to fish and you feed him for a lifetime. We help communities build their own fishing industry."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THREE PILLARS -->
+    <section class="pillars-section">
+        <div class="container">
+            <h2>The Three Pillars of Sustainability</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Our approach rests on three interconnected dimensions.</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Social Sustainability</h3>
+                    <p>Building community ownership, local leadership, and social cohesion that outlasts our programs.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Economic Sustainability</h3>
+                    <p>Creating livelihoods and economic systems that generate ongoing income and opportunity.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Environmental Sustainability</h3>
+                    <p>Protecting natural resources and promoting practices that work with, not against, nature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUSTAINABILITY PRINCIPLES -->
+    <section class="principles-section">
+        <div class="container">
+            <h2>Key Principles</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">How we ensure our programs create lasting change.</p>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-number">1</div>
+                    <div class="principle-content">
+                        <h3>Local Ownership</h3>
+                        <p>Programs are designed and led by community members who will sustain them after we leave.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">2</div>
+                    <div class="principle-content">
+                        <h3>Capacity Building</h3>
+                        <p>We invest in training and developing local skills, knowledge, and systems.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">3</div>
+                    <div class="principle-content">
+                        <h3>Systems Strengthening</h3>
+                        <p>We work within and strengthen existing community structures rather than creating parallel systems.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">4</div>
+                    <div class="principle-content">
+                        <h3>Exit Strategy</h3>
+                        <p>Every program includes a clear plan for transition and handover from the start.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">5</div>
+                    <div class="principle-content">
+                        <h3>Resource Mobilization</h3>
+                        <p>Helping communities access and generate their own resources for ongoing needs.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">6</div>
+                    <div class="principle-content">
+                        <h3>Adaptive Management</h3>
+                        <p>Building flexibility to adapt to changing circumstances over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENVIRONMENTAL SUSTAINABILITY -->
+    <section class="environment-section">
+        <div class="container">
+            <h2>Environmental Responsibility</h2>
+            
+            <div class="environment-row">
+                <div class="environment-image">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Environmental sustainability">
+                </div>
+                <div class="environment-content">
+                    <p>We recognize that human wellbeing is inseparable from environmental health. Our programs actively work to protect and regenerate the natural environment while meeting human needs.</p>
+                    <ul class="environment-list">
+                        <li><i class="fas fa-tree"></i> <strong>Reforestation:</strong> Tree planting and agroforestry initiatives</li>
+                        <li><i class="fas fa-water"></i> <strong>Water conservation:</strong> Rainwater harvesting and efficient irrigation</li>
+                        <li><i class="fas fa-sun"></i> <strong>Renewable energy:</strong> Solar-powered solutions for communities</li>
+                        <li><i class="fas fa-seedling"></i> <strong>Sustainable agriculture:</strong> Organic farming, permaculture, and conservation agriculture</li>
+                        <li><i class="fas fa-recycle"></i> <strong>Waste management:</strong> Composting and recycling programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPACITY BUILDING -->
+    <section class="capacity-section">
+        <div class="container">
+            <h2>Building Local Capacity</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Investing in people and systems that last.</p>
+            
+            <div class="capacity-grid">
+                <div class="capacity-card">
+                    <div class="capacity-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Training of Trainers</h3>
+                    <p>Training community members to become trainers who can continue teaching others</p>
+                </div>
+                <div class="capacity-card">
+                    <div class="capacity-icon"><i class="fas fa-users-cog"></i></div>
+                    <h3>Community Leadership</h3>
+                    <p>Developing local leaders who can guide community development</p>
+                </div>
+                <div class="capacity-card">
+                    <div class="capacity-icon"><i class="fas fa-building"></i></div>
+                    <h3>Organizational Strengthening</h3>
+                    <p>Supporting local organizations with management, governance, and fundraising</p>
+                </div>
+                <div class="capacity-card">
+                    <div class="capacity-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Skills Development</h3>
+                    <p>Vocational and technical skills that generate ongoing income</p>
+                </div>
+                <div class="capacity-card">
+                    <div class="capacity-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Financial Management</h3>
+                    <p>Training in budgeting, accounting, and financial sustainability</p>
+                </div>
+                <div class="capacity-card">
+                    <div class="capacity-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Partnership Building</h3>
+                    <p>Connecting communities with ongoing support networks and resources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="case-study">
+        <div class="container">
+            <h2>Case Study: Community-Managed Forest</h2>
+            
+            <div class="case-row">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community forest">
+                </div>
+                <div class="case-content">
+                    <p>In 2020, we partnered with a community in northern Uganda to restore a degraded forest area. Rather than simply planting trees, we worked with community members to establish a community forest management committee, train local forest guardians, and develop sustainable harvesting plans.</p>
+                    <p>Three years later, the forest is thriving, providing firewood, medicinal plants, and a small income from sustainable timber harvesting—all managed entirely by the community.</p>
+                    <div class="case-quote">
+                        "ADF didn't just plant trees and leave. They helped us learn to care for our forest ourselves. Now our children will inherit a healthy forest."
+                        <div class="case-author">— Peter, Forest Committee Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="impact-section">
+        <div class="container">
+            <h2>Impact of Sustainable Approach</h2>
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Programs Sustained After 3 Years</span>
+                </div>
+                <div class="impact-stat">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">Local Leaders Trained</span>
+                </div>
+                <div class="impact-stat">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">Community Organizations Strengthened</span>
+                </div>
+                <div class="impact-stat">
+                    <span class="stat-number">50,000+</span>
+                    <span class="stat-label">Trees Planted</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Support Sustainable Development</h2>
+            <p>Help us create lasting change that communities can sustain for generations.</p>
+            <div class="cta-buttons">
+                <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                <a href="#" class="btn btn-outline-light">Learn About Our Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achile Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="./futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 779 034 351<br>
+                                +256 740 995 887
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achiledevinefoundation.org<br>
+                                partnerships@achiledevinefoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form id="newsletterForm" class="newsletter-form" action="./php/process_newsletter.php" method="POST">
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achile Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript -->
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        // Afficher les messages d'erreur/succès depuis l'URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            
+            if (success === 'subscribed') {
+                alert('Thank you for subscribing to our newsletter!');
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'invalid') message = 'Invalid request.';
+                if (error === 'missing_fields') message = 'Please fill in all fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email.';
+                if (error === 'already_subscribed') message = 'This email is already subscribed.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                
+                alert(message);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

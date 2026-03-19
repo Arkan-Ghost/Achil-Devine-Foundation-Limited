@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achile Devine Foundation - Success Stories</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <!-- Page Specific CSS -->
+    <style>
+        /* === PAGE SPECIFIC STYLES FOR SUCCESS STORIES PAGE === */
+        
+        /* Page Header Override */
+        .page-header {
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 300px;
+        }
+
+        /* Introduction */
+        .intro-section .intro-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .intro-section .intro-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .intro-section .intro-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .intro-section .intro-content {
+            flex: 1;
+        }
+
+        .intro-section .intro-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .intro-section .intro-content h2 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .intro-section .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .intro-section .highlight-box {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-left: 4px solid var(--accent-orange);
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .intro-section .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Featured Story */
+        .featured-story {
+            background-color: var(--bg-light);
+        }
+
+        .featured-card {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background-color: var(--text-light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .featured-image {
+            flex: 1;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-card:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .featured-info {
+            flex: 1;
+            padding: 50px;
+        }
+
+        .featured-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .featured-role {
+            color: var(--accent-orange);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .featured-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .featured-story-text p {
+            margin-bottom: 15px;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 30px;
+        }
+
+        .featured-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-meta-item i {
+            color: var(--accent-orange);
+        }
+
+        /* Categories Filter */
+        .categories-section {
+            background-color: var(--bg-light);
+            padding: 30px 0;
+        }
+
+        .categories-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--primary-dark);
+            background-color: transparent;
+            color: var(--primary-dark);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        /* Stories Grid */
+        .stories-grid-section {
+            background-color: var(--text-light);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .story-card {
+            background-color: var(--text-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--bg-light);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .story-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.1);
+        }
+
+        .story-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .story-content {
+            padding: 25px;
+        }
+
+        .story-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .story-title {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .story-excerpt {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .read-more {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.95)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: var(--text-light);
+            padding: 60px 0;
+        }
+
+        .testimonials-section h2 {
+            color: var(--text-light);
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .slide-quote {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .slide-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .slide-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-orange);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--accent-orange);
+            margin-bottom: 0;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--accent-orange);
+            transform: scale(1.2);
+        }
+
+        /* Video Stories */
+        .video-section {
+            background-color: var(--bg-light);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .video-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: var(--primary-dark);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .video-duration {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .video-info p {
+            margin-bottom: 0;
+        }
+
+        /* Share Section */
+        .share-section {
+            background: linear-gradient(rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.95)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            text-align: center;
+            color: var(--text-light);
+            padding: 80px 0;
+        }
+
+        .share-section h2 {
+            color: var(--text-light);
+        }
+
+        .share-section p {
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* === RESPONSIVE (Page Specific) === */
+        @media (max-width: 1024px) {
+            .intro-section .intro-row,
+            .featured-card {
+                flex-direction: column;
+            }
+
+            .stories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-info {
+                padding: 30px;
+            }
+
+            .featured-name {
+                font-size: 2rem;
+            }
+
+            .featured-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION WITH LOGO AND DROPDOWN MENUS -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <!-- LOGO IMAGE -->
+            <img src="./img/ADFL.png" alt="Achile Devine Foundation Logo" class="logo-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image doesn't load -->
+            <div class="logo-fallback">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main menu with dropdowns -->
+        <ul class="nav-menu" id="navMenu">
+            <!-- Home with dropdown -->
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <!-- About with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <!-- Programs with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <!-- Impact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Our_Results.html" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="Success_Stories.html" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                </div>
+            </li>
+
+            <!-- Approach with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <!-- Contact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Success Stories</h1>
+            <p>Real people, real transformations: stories of hope and resilience</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>></span> <a href="#">Impact</a> <span>></span> <span>Success Stories</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION (Image + Texte) -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-row">
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Success stories">
+                </div>
+                <div class="intro-content">
+                    <div class="intro-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h2>Hope in Action</h2>
+                    <p>Behind every statistic is a human story. Our success stories showcase the resilience, determination, and courage of the individuals and communities we serve. These are the moments that remind us why our work matters.</p>
+                    <p>From refugees who have rebuilt their lives to survivors who have found their voice, each story is a testament to the power of opportunity and support.</p>
+                    <div class="highlight-box">
+                        <p>"Every person has a story. Every story has the power to inspire change."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED STORY -->
+    <section class="featured-story">
+        <div class="container">
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Amina">
+                    <div class="featured-badge">Featured Story</div>
+                </div>
+                <div class="featured-info">
+                    <div class="featured-name">Amina's Journey</div>
+                    <div class="featured-role">From Refugee to Entrepreneur</div>
+                    <div class="featured-quote">"I never imagined I could own my own business and employ others. ADF gave me hope and the skills to build a future."</div>
+                    <div class="featured-story-text">
+                        <p>Amina fled conflict in her home country with nothing but hope. She arrived in Uganda traumatized and uncertain about her future. Through our livelihood program, she received training in tailoring and business management.</p>
+                        <p>Today, Amina runs a successful tailoring shop in Kampala, employing three other women from her community. She is also training other refugee women, passing on the skills she learned.</p>
+                    </div>
+                    <div class="featured-meta">
+                        <div class="featured-meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Program: 2023</span>
+                        </div>
+                        <div class="featured-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kampala, Uganda</span>
+                        </div>
+                        <div class="featured-meta-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>Livelihood Program</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORIES BY CATEGORY -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="categories-filter">
+                <button class="category-btn active">All Stories</button>
+                <button class="category-btn">Livelihood</button>
+                <button class="category-btn">Agriculture</button>
+                <button class="category-btn">Mental Health</button>
+                <button class="category-btn">Health</button>
+                <button class="category-btn">Nutrition</button>
+                <button class="category-btn">Rights & Advocacy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORIES GRID -->
+    <section class="stories-grid-section">
+        <div class="container">
+            <h2>More Stories of Change</h2>
+            
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1598270647421-9b0b6d2a7b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Robert">
+                        <div class="story-category">Agriculture</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-name">Robert's Farm</h3>
+                        <div class="story-title">From subsistence to success</div>
+                        <p class="story-excerpt">After training with our agriculture program, Robert now supplies fresh vegetables to local schools and employs three other farmers.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Grace">
+                        <div class="story-category">Mental Health</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-name">Grace's Healing</h3>
+                        <div class="story-title">From survivor to counselor</div>
+                        <p class="story-excerpt">After months of counseling, Grace now facilitates her own support group for other survivors of gender-based violence.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Margaret">
+                        <div class="story-category">Nutrition</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-name">Margaret's Twins</h3>
+                        <div class="story-title">Healthy babies, hopeful mother</div>
+                        <p class="story-excerpt">Through our nutrition program, Margaret's premature twins received the support they needed to thrive.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="James">
+                        <div class="story-category">Health</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-name">James the Health Worker</h3>
+                        <div class="story-title">Serving his community</div>
+                        <p class="story-excerpt">Trained as a community health worker, James now serves 50 families in his settlement with home visits and health education.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fatima">
+                        <div class="story-category">Livelihood</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-name">Fatima's Catering</h3>
+                        <div class="story-title">Cooking up a future</div>
+                        <p class="story-excerpt">After completing our catering training, Fatima started a small restaurant that now serves 50 customers daily.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="David">
+                        <div class="story-category">Rights & Advocacy</div>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="story-name">David's Case</h3>
+                        <div class="story-title">Justice served</div>
+                        <p class="story-excerpt">With our legal aid, David was released from detention and granted asylum. He now volunteers as a community paralegal.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-outline">Load More Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL CAROUSEL -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Voices of Hope</h2>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-slide">
+                    <div class="slide-quote"><i class="fas fa-quote-right"></i></div>
+                    <p class="slide-text">"When I arrived, I had nothing. Now I have a business, I employ others, and I can send my children to school. ADF changed my life."</p>
+                    <div class="slide-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Amina">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amina</h4>
+                            <p>Livelihood Program Graduate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO STORIES -->
+    <section class="video-section">
+        <div class="container">
+            <h2>Watch Their Stories</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Hear directly from the people whose lives have been transformed.</p>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Video 1">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Amina's Journey</h3>
+                        <div class="video-duration">4:32 min</div>
+                        <p>From refugee to entrepreneur - Amina shares her story.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1598270647421-9b0b6d2a7b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Video 2">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Robert's Farm</h3>
+                        <div class="video-duration">3:45 min</div>
+                        <p>How sustainable farming changed Robert's life.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-outline">Watch More Videos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHARE YOUR STORY -->
+    <section class="share-section">
+        <div class="container">
+            <h2>Share Your Story</h2>
+            <p>Have you been touched by our programs? We'd love to hear your story and share it to inspire others.</p>
+            <div class="share-buttons">
+                <a href="#" class="btn btn-primary">Submit Your Story</a>
+                <a href="#" class="btn btn-outline-light">Nominate Someone</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achile Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="./futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 779 034 351<br>
+                                +256 740 995 887
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achiledevinefoundation.org<br>
+                                partnerships@achiledevinefoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form id="newsletterForm" class="newsletter-form" action="./php/process_newsletter.php" method="POST">
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achile Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript -->
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        // Afficher les messages d'erreur/succès depuis l'URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            
+            if (success === 'subscribed') {
+                alert('Thank you for subscribing to our newsletter!');
+                // Nettoyer l'URL sans recharger la page
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'invalid') message = 'Invalid request.';
+                if (error === 'missing_fields') message = 'Please fill in all fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email.';
+                if (error === 'already_subscribed') message = 'This email is already subscribed.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                
+                alert(message);
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+
+        // Category filter buttons (active state)
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Slider dots (simulated)
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                dots.forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

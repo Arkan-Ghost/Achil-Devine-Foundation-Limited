@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Donate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+</head>
+<body>
+    <!-- Navigation (identique à index.html) -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <img src="./img/ADFL.png" alt="Achil Devine Foundation Logo" class="logo-image">
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <!-- Même menu que dans index.html -->
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Make a Donation</h1>
+            <p>Your support helps us empower refugees and vulnerable communities</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h2>Donation Form</h2>
+                    <p>Every contribution makes a difference. Thank you for your generosity.</p>
+                </div>
+
+                <form id="donateForm" class="styled-form ajax-form" action="./php/process_donate.php" method="POST">
+                    <div class="form-group">
+                        <label for="donation_type">Donation Type *</label>
+                        <select id="donation_type" name="donation_type" required>
+                            <option value="">Select donation type</option>
+                            <option value="one-time">One-time Donation</option>
+                            <option value="monthly">Monthly Donation</option>
+                            <option value="annual">Annual Donation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Donation Amount *</label>
+                        <div class="amount-options">
+                            <button type="button" class="amount-btn" data-amount="25">$25</button>
+                            <button type="button" class="amount-btn" data-amount="50">$50</button>
+                            <button type="button" class="amount-btn" data-amount="100">$100</button>
+                            <button type="button" class="amount-btn" data-amount="250">$250</button>
+                            <button type="button" class="amount-btn" data-amount="500">$500</button>
+                            <button type="button" class="amount-btn" data-amount="1000">$1000</button>
+                        </div>
+                        <input type="number" id="custom_amount" name="amount" class="custom-amount" placeholder="Or enter custom amount" min="1" step="0.01">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">First Name *</label>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payment_method">Payment Method *</label>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="credit_card" required>
+                                <i class="fab fa-cc-visa"></i> Credit Card
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="bank_transfer">
+                                <i class="fas fa-university"></i> Bank Transfer
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="mobile_money">
+                                <i class="fas fa-mobile-alt"></i> Mobile Money
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Leave a message or dedication"></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="anonymous" name="anonymous">
+                        <label for="anonymous">I would like to remain anonymous</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="tax_receipt" name="tax_receipt" checked>
+                        <label for="tax_receipt">I would like to receive a tax receipt</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#" target="_blank">terms and conditions</a></label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Proceed to Payment</button>
+                        <a href="index.html" class="btn btn-outline">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-stats">
+        <div class="container">
+            <h2>Your Donation Makes a Difference</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">$25</span>
+                    <span class="stat-label">Provides meals for a family for a week</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$50</span>
+                    <span class="stat-label">Supports a child's education for a month</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$100</span>
+                    <span class="stat-label">Provides vocational training for one person</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$500</span>
+                    <span class="stat-label">Funds a community health outreach</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><!-- Même footer --></footer>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            const transaction = urlParams.get('transaction');
+            
+            if (success === 'submitted') {
+                if (transaction) {
+                    alert(`Thank you for your donation! Your transaction ID is: ${transaction}`);
+                } else {
+                    alert('Thank you! Your submission has been received.');
+                }
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'missing_fields') message = 'Please fill in all required fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email address.';
+                if (error === 'invalid_website') message = 'Please enter a valid website URL.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                if (error === 'invalid') message = 'Invalid request.';
+                
+                alert(message);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

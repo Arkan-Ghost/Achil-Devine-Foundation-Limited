@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Get Involved</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+</head>
+<body>
+    <!-- Navigation (identique à index.html) -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <img src="./img/ADFL.png" alt="Achil Devine Foundation Logo" class="logo-image">
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <!-- Même menu que dans index.html -->
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Get Involved</h1>
+            <p>There are many ways to support our mission</p>
+        </div>
+    </section>
+
+    <section class="options-section">
+        <div class="container">
+            <h2>How Would You Like to Get Involved?</h2>
+            <div class="options-grid">
+                <a href="volunteer.html" class="option-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Volunteer</h3>
+                    <p>Donate your time and skills</p>
+                </a>
+                <a href="donate.html" class="option-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Donate</h3>
+                    <p>Make a financial contribution</p>
+                </a>
+                <a href="partner.html" class="option-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Partner</h3>
+                    <p>Collaborate with us</p>
+                </a>
+                <a href="#advocate" class="option-card" id="advocateOption">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Advocate</h3>
+                    <p>Raise awareness and speak up</p>
+                </a>
+                <a href="#fundraise" class="option-card" id="fundraiseOption">
+                    <i class="fas fa-gift"></i>
+                    <h3>Fundraise</h3>
+                    <p>Organize fundraising events</p>
+                </a>
+                <a href="#other" class="option-card" id="otherOption">
+                    <i class="fas fa-star"></i>
+                    <h3>Other</h3>
+                    <p>Other ways to support</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section" id="involvementForm" style="display: none;">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <i class="fas fa-hands-helping"></i>
+                    <h2>Tell Us More</h2>
+                    <p>Please provide your information and we'll get back to you</p>
+                </div>
+
+                <form id="getInvolvedForm" class="styled-form ajax-form" action="./php/process_get_involved.php" method="POST">
+                    <input type="hidden" id="interest_area" name="interest_area" value="">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us how you'd like to get involved and any ideas you have"></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        <label for="newsletter">Subscribe to our newsletter for updates</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Submit</button>
+                        <a href="index.html" class="btn btn-outline">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><!-- Même footer --></footer>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            const transaction = urlParams.get('transaction');
+            
+            if (success === 'submitted') {
+                if (transaction) {
+                    alert(`Thank you for your donation! Your transaction ID is: ${transaction}`);
+                } else {
+                    alert('Thank you! Your submission has been received.');
+                }
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
+            if (error) {
+                let message = 'An error occurred.';
+                if (error === 'missing_fields') message = 'Please fill in all required fields.';
+                if (error === 'invalid_email') message = 'Please enter a valid email address.';
+                if (error === 'invalid_website') message = 'Please enter a valid website URL.';
+                if (error === 'db_error') message = 'Database error. Please try again.';
+                if (error === 'server_error') message = 'Server error. Please try again later.';
+                if (error === 'invalid') message = 'Invalid request.';
+                
+                alert(message);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

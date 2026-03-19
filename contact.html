@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achil Devine Foundation - Contact Us</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <style>
+        /* Styles spécifiques à la page contact */
+        .page-header {
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 300px;
+        }
+        
+        .contact-intro {
+            background-color: var(--text-light);
+        }
+        
+        .intro-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro-icon {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .contact-cards {
+            background-color: var(--bg-light);
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--card-shadow);
+            cursor: pointer;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-card:hover .card-icon {
+            background: var(--accent-orange);
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .contact-form-section {
+            background-color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .form-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .form-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .form-container {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: var(--font-family);
+        }
+        
+        .form-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: white;
+            padding: 0 5px;
+        }
+        
+        .form-group textarea + label {
+            top: 30px;
+            transform: none;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-orange);
+            outline: none;
+        }
+        
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group select:focus + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.85rem;
+            color: var(--accent-orange);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e07b2f;
+            transform: translateY(-2px);
+        }
+        
+        .map-section {
+            background-color: var(--bg-light);
+        }
+        
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            height: 450px;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder i {
+            font-size: 5rem;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+        
+        .hours-section {
+            background-color: var(--text-light);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .hours-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .hours-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: white;
+        }
+        
+        .hours-card:hover * {
+            color: white;
+        }
+        
+        .hours-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+        
+        .faq-section {
+            background-color: var(--bg-light);
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-question i {
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+        }
+        
+        .faq-question h3 {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+        
+        .faq-item p {
+            margin-bottom: 0;
+            padding-left: 40px;
+            color: var(--text-gray);
+        }
+        
+        .faq-item a {
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+        
+        .faq-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* === RESPONSIVE POUR MOBILE === */
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-row {
+                flex-direction: column;
+            }
+            .faq-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-container {
+                padding: 30px 20px;
+            }
+            .form-image {
+                height: 300px;
+            }
+            .form-image img {
+                height: 100%;
+            }
+            .page-header {
+                height: 250px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .hours-card {
+                padding: 30px 20px;
+            }
+            .faq-item {
+                padding: 25px 20px;
+            }
+            .faq-question h3 {
+                font-size: 1.1rem;
+            }
+            .faq-item p {
+                padding-left: 35px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            .page-header p {
+                font-size: 1rem;
+            }
+            .contact-card {
+                padding: 30px 20px;
+            }
+            .card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            .faq-question {
+                gap: 10px;
+            }
+            .faq-question i {
+                font-size: 1.2rem;
+            }
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+            .faq-item p {
+                padding-left: 30px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIXED NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <!-- LOGO IMAGE -->
+            <img src="./img/ADFL.png" alt="Achil Devine Foundation Logo" class="logo-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image doesn't load -->
+            <div class="logo-fallback">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main menu with dropdowns -->
+        <ul class="nav-menu" id="navMenu">
+            <!-- Home with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <!-- About with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="About_us.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <!-- Programs with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <!-- Impact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Our_Results.html" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="Success_Stories.html" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                </div>
+            </li>
+
+            <!-- Approach with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <!-- Contact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="contact.html" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="contact.html" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="contact.html" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="partner.html" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us. We'd love to hear from you.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>></span> <span>Contact</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT INTRO -->
+    <section class="contact-intro">
+        <div class="container">
+            <div class="intro-content scroll-reveal">
+                <div class="intro-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h2>Let's Connect</h2>
+                <p>Whether you have a question, want to collaborate, or need support, our team is here to help. Reach out to us through any of the channels below.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CARDS -->
+    <section class="contact-cards">
+        <div class="container">
+            <div class="cards-grid">
+                <div class="contact-card scroll-reveal">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>info@achiledevinefoundation.org</p>
+                    <p>partnerships@achiledevinefoundation.org</p>
+                    <a href="mailto:info@achiledevinefoundation.org" class="contact-link">Send Message <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="contact-card scroll-reveal">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Find Us</h3>
+                    <p>Plot 123, NGO Street</p>
+                    <p>Kampala, Uganda</p>
+                    <a href="#" class="contact-link">Get Directions <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="contact-card scroll-reveal">
+                    <div class="card-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+256 779 034 351</p>
+                    <p>+256 740 995 887</p>
+                    <a href="tel:+256779034351" class="contact-link">Call Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="contact-card scroll-reveal">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Become a Partner</h3>
+                    <p>Interested in collaborating?</p>
+                    <p>Let's work together</p>
+                    <a href="partner.html" class="contact-link">Partner With Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-form-section">
+        <div class="container">
+            <h2>Send Us a Message</h2>
+            <div class="form-row">
+                <div class="form-image scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Contact us">
+                </div>
+                <div class="form-container scroll-reveal">
+                    <form id="contactForm" action="./php/contact.php" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected></option>
+                                <option value="general">General Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="support">Need Support</option>
+                                <option value="volunteer">Volunteer</option>
+                                <option value="donation">Donation</option>
+                            </select>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder=" " required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Our Location</h2>
+            <div class="map-container scroll-reveal">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>Interactive Map Coming Soon</p>
+                    <p>Plot 123, NGO Street, Kampala, Uganda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFICE HOURS -->
+    <section class="hours-section">
+        <div class="container">
+            <h2>Office Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card scroll-reveal">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Weekdays</h3>
+                    <p>Monday - Friday</p>
+                    <p>8:00 AM - 5:00 PM</p>
+                </div>
+                <div class="hours-card scroll-reveal">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Saturday</h3>
+                    <p>9:00 AM - 1:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>How can I volunteer?</h3>
+                    </div>
+                    <p>Visit our <a href="volunteer.html">Volunteer page</a> or contact us directly at partnerships@achiledevinefoundation.org to learn about current opportunities.</p>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Where do donations go?</h3>
+                    </div>
+                    <p>92% of donations go directly to programs. Our annual reports provide detailed financial breakdowns.</p>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Do you work internationally?</h3>
+                    </div>
+                    <p>Currently we work in Uganda, but we partner with international organizations to support refugees from across the region.</p>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>How can I partner with you?</h3>
+                    </div>
+                    <p>We're always looking for partners. Visit our <a href="partner.html">Partner page</a> or email us at partnerships@achiledevinefoundation.org.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Whether you want to donate, volunteer, or partner with us, we'd love to hear from you.</p>
+            <div class="cta-buttons">
+                <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                <a href="volunteer.html" class="btn btn-secondary">Volunteer</a>
+                <a href="partner.html" class="btn btn-secondary">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achil Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links --> 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="careers.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 779 034 351<br>
+                                +256 740 995 887
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achiledevinefoundation.org<br>
+                                partnerships@achiledevinefoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form id="newsletterForm" class="newsletter-form" action="./php/process_newsletter.php" method="POST">
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achil Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript -->
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/forms.js"></script>
+    <script>
+        // Scroll reveal animation pour cette page
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            
+            const elementInView = (el, offset = 100) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return elementTop <= (window.innerHeight - offset);
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('revealed');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 100)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // Initial check
+            setTimeout(() => {
+                handleScrollAnimation();
+            }, 100);
+
+            // Form submission pour contact
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Thank you for your message! We will get back to you soon.');
+                            this.reset();
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        alert('An error occurred. Please try again.');
+                    })
+                    .finally(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

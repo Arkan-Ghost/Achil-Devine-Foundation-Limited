@@ -9,20 +9,92 @@
     <link rel="stylesheet" href="./css/forms.css">
 </head>
 <body>
-    <!-- Navigation (identique à index.html) -->
-    <nav class="navbar" id="navbar">
+    <!-- Navigation (identique) -->
+     <nav class="navbar" id="navbar">
         <div class="logo-container">
-            <img src="./img/ADFL.png" alt="Achil Devine Foundation Logo" class="logo-image">
+            <!-- LOGO IMAGE -->
+            <img src="./img/ADFL.png" alt="Achile Devine Foundation Logo" class="logo-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image doesn't load -->
+            <div class="logo-fallback">
+                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
+                ADF
+            </div>
         </div>
+
+        <!-- Mobile menu toggle -->
         <div class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
         </div>
+
+        <!-- Main menu with dropdowns -->
         <ul class="nav-menu" id="navMenu">
-            <!-- Même menu que dans index.html -->
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="programs.html" class="nav-link">Programs</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <!-- Home with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="News.html" class="dropdown-item"><i class="fas fa-newspaper"></i> News</a>
+                    <a href="Events.html" class="dropdown-item"><i class="fas fa-calendar"></i> Events</a>
+                </div>
+            </li>
+
+            <!-- About with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="About_us.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
+                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
+                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                </div>
+            </li>
+
+            <!-- Programs with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
+                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                    <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
+                    <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
+                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                </div>
+            </li>
+
+            <!-- Impact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Impact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Our_Results.html" class="dropdown-item"><i class="fas fa-chart-line"></i> Our Results</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-star"></i> Success Stories</a>
+                </div>
+            </li>
+
+            <!-- Approach with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Approach <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
+                    <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
+                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
+                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                </div>
+            </li>
+
+            <!-- Contact with dropdown -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
+                </div>
+            </li>
         </ul>
     </nav>
 
@@ -124,39 +196,99 @@
         </div>
     </section>
 
-    <footer class="footer"><!-- Même footer --></footer>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achile Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links --> 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="./futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 779 034 351<br>
+                                +256 740 995 887
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achiledevinefoundation.org<br>
+                                partnerships@achiledevinefoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form id="newsletterForm" class="newsletter-form ajax-form" action="./php/process_newsletter.php" method="POST">
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achile Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
     <script src="./javascript/script.js"></script>
     <script src="./javascript/forms.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const success = urlParams.get('success');
-            const error = urlParams.get('error');
-            const transaction = urlParams.get('transaction');
-            
-            if (success === 'submitted') {
-                if (transaction) {
-                    alert(`Thank you for your donation! Your transaction ID is: ${transaction}`);
-                } else {
-                    alert('Thank you! Your submission has been received.');
-                }
-                // Nettoyer l'URL
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-            
-            if (error) {
-                let message = 'An error occurred.';
-                if (error === 'missing_fields') message = 'Please fill in all required fields.';
-                if (error === 'invalid_email') message = 'Please enter a valid email address.';
-                if (error === 'invalid_website') message = 'Please enter a valid website URL.';
-                if (error === 'db_error') message = 'Database error. Please try again.';
-                if (error === 'server_error') message = 'Server error. Please try again later.';
-                if (error === 'invalid') message = 'Invalid request.';
-                
-                alert(message);
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-        });
-    </script>
 </body>
 </html>

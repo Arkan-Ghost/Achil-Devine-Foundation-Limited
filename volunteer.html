@@ -143,9 +143,118 @@
         </div>
     </section>
 
-    <!-- Footer -->
+     <!-- FOOTER -->
     <footer class="footer">
-        <!-- Même footer que index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h3>Achile Devine Foundation</h3>
+                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links --> 
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="./futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
+                        <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Kampala, Uganda<br>
+                                Plot 123, NGO Street
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +256 779 034 351<br>
+                                +256 740 995 887
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@achiledevinefoundation.org<br>
+                                partnerships@achiledevinefoundation.org
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Monday - Friday: 8:00am - 5:00pm<br>
+                                Saturday: 9:00am - 1:00pm
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <!--<div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    <form id="newsletterForm" class="newsletter-form ajax-form" action="./php/process_newsletter.php" method="POST">
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>-->
+
+                <!-- Fichier: index.html (extrait du footer) -->
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Stay informed about our actions and news</p>
+                    
+                    <!-- Formulaire adapté pour Formspree -->
+                    <form id="newsletterForm" class="newsletter-form" action="https://formspree.io/f/xyz123" method="POST">
+                        <!-- Champs cachés optionnels -->
+                        <input type="hidden" name="_subject" value="New Newsletter Subscription">
+                        <input type="hidden" name="_replyto" value="email">
+                        
+                        <input type="text" name="name" class="newsletter-input" placeholder="Your name" required>
+                        <input type="email" name="email" class="newsletter-input" placeholder="Your email" required>
+                        
+                        <!-- Anti-spam (optionnel mais recommandé) -->
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <button type="submit" class="btn-newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Achile Devine Foundation Limited. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
     <script src="./javascript/script.js"></script>

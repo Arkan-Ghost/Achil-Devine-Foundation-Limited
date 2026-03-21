@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
-    <!-- ==================== PAGES PRINCIPALES ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/</loc>
         <lastmod>2026-03-21</lastmod>
@@ -19,7 +15,6 @@
         <priority>1.0</priority>
     </url>
     
-    <!-- ==================== PAGES À PROPOS ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/About_us.html</loc>
         <lastmod>2026-03-21</lastmod>
@@ -35,7 +30,7 @@
     </url>
     
     <url>
-        <loc>https://www.achiledevinefoundation.org/mission&vision.html</loc>
+        <loc>https://www.achiledevinefoundation.org/mission%26vision.html</loc>
         <lastmod>2026-03-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -48,7 +43,6 @@
         <priority>0.7</priority>
     </url>
     
-    <!-- ==================== PAGES PROGRAMMES ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/Livelihood_Programs.html</loc>
         <lastmod>2026-03-21</lastmod>
@@ -85,13 +79,12 @@
     </url>
     
     <url>
-        <loc>https://www.achiledevinefoundation.org/Refugee_Rights&Advocacy.html</loc>
+        <loc>https://www.achiledevinefoundation.org/Refugee_Rights%26Advocacy.html</loc>
         <lastmod>2026-03-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
-    <!-- ==================== PAGES IMPACT ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/Our_Results.html</loc>
         <lastmod>2026-03-21</lastmod>
@@ -106,43 +99,6 @@
         <priority>0.8</priority>
     </url>
     
-    <!-- ==================== PAGES APPROCHE ==================== -->
-    <url>
-        <loc>https://www.achiledevinefoundation.org/Participatory_Approach.html</loc>
-        <lastmod>2026-03-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://www.achiledevinefoundation.org/Holistic_Approach.html</loc>
-        <lastmod>2026-03-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://www.achiledevinefoundation.org/Sustainable_Approach.html</loc>
-        <lastmod>2026-03-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://www.achiledevinefoundation.org/Inclusive_Approach.html</loc>
-        <lastmod>2026-03-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://www.achiledevinefoundation.org/innovative_Approach.html</loc>
-        <lastmod>2026-03-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- ==================== PAGES ACTIONS ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/donate.html</loc>
         <lastmod>2026-03-21</lastmod>
@@ -171,7 +127,6 @@
         <priority>0.8</priority>
     </url>
     
-    <!-- ==================== PAGES NEWS & ÉVÉNEMENTS ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/News.html</loc>
         <lastmod>2026-03-21</lastmod>
@@ -186,20 +141,11 @@
         <priority>0.7</priority>
     </url>
     
-    <!-- ==================== PAGE CONTACT ==================== -->
     <url>
         <loc>https://www.achiledevinefoundation.org/contact.html</loc>
         <lastmod>2026-03-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-    </url>
-    
-    <!-- ==================== PAGES COMPLÉMENTAIRES ==================== -->
-    <url>
-        <loc>https://www.achiledevinefoundation.org/thank-you.html</loc>
-        <lastmod>2026-03-21</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
     </url>
     
 </urlset>

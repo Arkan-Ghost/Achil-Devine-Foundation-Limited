@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achil Devine Foundation - About Us</title>
+    <title>Achile Devine Foundation - About Us</title>
     <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
     <style>
         /* === VARIABLES AND GLOBAL STYLES === */
         :root {
@@ -233,7 +236,7 @@
 
         /* === PAGE HEADER === */
         .page-header {
-            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://res.cloudinary.com/dh5audqzd/image/upload/v1776189866/WhatsApp_Image_2026-04-13_at_6.57.13_PM_tgihrn.jpg') center/cover no-repeat;
             height: 300px;
             display: flex;
             align-items: center;
@@ -484,7 +487,7 @@
 
         /* === CTA SECTION === */
         .cta {
-            background: linear-gradient(rgba(30, 74, 109, 0.9), rgba(30, 74, 109, 0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(30, 74, 109, 0.9), rgba(30, 74, 109, 0.9)), url('https://res.cloudinary.com/dh5audqzd/image/upload/v1776193733/PM_k8ryfn.jpg') center/cover no-repeat;
             text-align: center;
             color: var(--text-light);
         }
@@ -784,7 +787,11 @@
     <!-- FIXED NAVIGATION (same as home page) -->
     <nav class="navbar" id="navbar">
         <div class="logo-container">
-            <div class="logo-placeholder">
+            <!-- LOGO IMAGE -->
+            <img src="./img/ADFL.png" alt="Achile Devine Foundation Logo" class="logo-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image doesn't load -->
+            <div class="logo-fallback">
                 <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
                 ADF
             </div>
@@ -807,10 +814,9 @@
             <li class="nav-item">
                 <a href="About_us.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="About_us.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
                     <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
-                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
-                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
+                    <!--<a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>-->    
                 </div>
             </li>
 
@@ -818,11 +824,11 @@
                 <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
                     <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
-                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                     <!--<a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>-->
                     <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
                     <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
-                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
-                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                    <!--<<a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>-->
                 </div>
             </li>
 
@@ -839,20 +845,14 @@
                 <div class="dropdown-menu">
                     <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
                     <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
-                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <!--<a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>-->
                     <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
-                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                    <!--<a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>-->
                 </div>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
-                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
-                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
-                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
-                </div>
+                <a href="contact.html" class="nav-link">Contact <i></i></a>
             </li>
         </ul>
     </nav>
@@ -873,12 +873,11 @@
         <div class="container">
             <div class="about-intro-text">
                 <h2>About the Organization</h2>
-                <p><span class="highlight">Achile Devine Foundation Limited</span> is committed to promoting dignity, inclusion, and sustainable livelihoods for refugees, displaced persons, survivors of violence, and vulnerable host communities.</p>
-                <p>Founded with a vision to create lasting change, we work tirelessly to ensure that the most vulnerable members of society have access to the resources, support, and opportunities they need to rebuild their lives with dignity.</p>
+                <p><span class="highlight">Achile Devine Foundation Limited</span> is a refugee led organization founded in 2023 dedicated to supporting refugees, asylum seekers, survivors of gender-based violence, and vulnerable host communities. Through education, livelihood programs, community health services protection and advocacy. We aim to create opportunities that promote dignity, self-reliance, and sustainable development to empower everyone with the vision of life beyond survival.</p>
                 <p>Our approach is rooted in <span class="highlight">community participation</span> and <span class="highlight">local leadership</span>, ensuring that our interventions are culturally appropriate, context-specific, and truly owned by the communities we serve.</p>
             </div>
             <div class="about-intro-image">
-                <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community meeting">
+                <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776628466/n_fplrqt.jpg" alt="Community meeting">
             </div>
         </div>
     </section>
@@ -893,7 +892,7 @@
                         <i class="fas fa-eye"></i>
                     </div>
                     <h3>Our Vision</h3>
-                    <p>A society where refugees, displaced persons, survivors of violence, and vulnerable host communities live with dignity, equal opportunities, and sustainable livelihoods.</p>
+                    <p>To restore dignity, rebuild lives, and renew hope by empowering displaced and vulnerable host communities through inclusive programs, sustainable opportunities, and community-driven solutions that foster resilience, self-reliance, and social cohesion.</p>
                 </div>
 
                 <!-- Mission Card -->
@@ -902,7 +901,14 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Our Mission</h3>
-                    <p>To empower refugees, asylum seekers, survivors of sexual and gender-based violence, and vulnerable host communities through protection, education, skills development, psychosocial support, and sustainable livelihood programs.</p>
+                    <ul>
+                        <li>	To deliver community driven solutions that redefined humanitarian response shifting from aid dependency to empowerment and sustainable impact.</li>
+                        <li>	To reinforce self-worth and human rights through protection, advocacy and psychosocial support programs for everyone to be seen and respected.</li>
+                        <li>	To create a pathway for employment, entrepreneurship and financial independence through vocational training , support small scale business and income generating activities. </li>
+                        <li>	To empower Women, youths and adults to become productive contributors to development in the society.</li>
+                        <li>	To support mental health, trauma healing and access to basic healthcare services.</li>
+                        <li>To transform vulnerability into opportunities by equipping communities with skills, resources and platforms that foster self -reliance and long-term development.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -919,56 +925,56 @@
                     <div class="value-icon">
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
-                    <h3>Human dignity and respect</h3>
-                    <p>We treat every person with inherent dignity and respect, recognizing their strengths and capabilities.</p>
+                    <h3>Dignity</h3>
+                    <p>We ensure respect, inclusivity, and humanism in everything we do by upholding the real value of every individual.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3>Equity and inclusion</h3>
-                    <p>We ensure that all individuals, regardless of their background, have equal access to opportunities and resources.</p>
+                    <h3>Adaptability</h3>
+                    <p>We cultivate courage and determination in the communities we serve by transforming hardship into strength.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-file-contract"></i>
                     </div>
-                    <h3>Transparency and accountability</h3>
-                    <p>We operate with openness and hold ourselves accountable to our beneficiaries, partners, and donors.</p>
+                    <h3>Empowerment</h3>
+                    <p>We give people the resources, chances, and abilities they need to take control of their own destiny.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Community participation</h3>
-                    <p>We actively involve communities in decision-making processes that affect their lives.</p>
+                    <h3>Honesty</h3>
+                    <p>In all of our interactions and collaborations, we behave with openness, responsibility, and integrity.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Empowerment and self-reliance</h3>
-                    <p>We build capacities and create opportunities for individuals and communities to become self-sufficient.</p>
+                    <h3>Inclusion</h3>
+                    <p>Regardless of gender, age, ability, or background, we value diversity and make sure that no one is left behind.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-gavel"></i>
                     </div>
-                    <h3>Protection of human rights</h3>
-                    <p>We advocate for and protect the fundamental rights of all people, especially the most vulnerable.</p>
+                    <h3>Creativity</h3>
+                    <p>We create innovative, flexible solutions to challenging development and humanitarian issues.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Sustainable development</h3>
-                    <p>We promote solutions that create lasting change for refugees and host communities alike.</p>
+                    <h3>Cooperation</h3>
+                    <p>We think that collaborating with communities, stakeholders, and allies may have a significant influence.</p>
                 </div>
             </div>
         </div>
@@ -1000,23 +1006,23 @@
     </section>
 
     <!-- TEAM SECTION (OPTIONAL - YOU CAN REMOVE IF NOT NEEDED) -->
-    <section class="team">
+    <!--<section class="team">
         <div class="container">
             <h2>Our Leadership Team</h2>
             <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">Meet the dedicated individuals leading our mission and guiding our work.</p>
             
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Executive Director" class="member-image">
+                    <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776189850/WhatsApp_Image_2026-04-13_at_6.57.17_urm5au.jpg" alt="Executive Director" class="member-image">
                     <div class="member-info">
-                        <h3>Sarah Achil</h3>
+                        <h3>Sarah Achile</h3>
                         <p class="member-title">Executive Director</p>
                         <p class="member-bio">15+ years of experience in humanitarian work and community development.</p>
                     </div>
                 </div>
 
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Programs Director" class="member-image">
+                    <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776189850/WhatsApp_Image_2026-04-13_at_6.57.17_urm5au.jpg" alt="Programs Director" class="member-image">
                     <div class="member-info">
                         <h3>John Devine</h3>
                         <p class="member-title">Programs Director</p>
@@ -1025,7 +1031,7 @@
                 </div>
 
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mental Health Coordinator" class="member-image">
+                    <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776193723/WhatsApp_Image_2026-04-12_at_6.58.51_P_kyecgc.jpg" alt="Mental Health Coordinator" class="member-image">
                     <div class="member-info">
                         <h3>Dr. Maria Gonzalez</h3>
                         <p class="member-title">Mental Health Coordinator</p>
@@ -1034,7 +1040,7 @@
                 </div>
 
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Advocacy Lead" class="member-image">
+                    <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776189850/WhatsApp_Image_2026-04-13_at_6.57.17_urm5au.jpg" alt="Advocacy Lead" class="member-image">
                     <div class="member-info">
                         <h3>David Okafor</h3>
                         <p class="member-title">Advocacy Lead</p>
@@ -1043,15 +1049,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- CALL TO ACTION SECTION -->
     <section class="cta">
         <div class="container">
             <h2>Join Us in Making a Difference</h2>
             <p>Your support can help us reach more vulnerable communities and create lasting change.</p>
-            <a href="#" class="btn btn-primary">Support Our Work</a>
-            <a href="#" class="btn btn-secondary" style="background-color: transparent; color: white; border: 2px solid white;">Contact Us</a>
+            <a href="donate.html" class="btn btn-primary">Support Our Work</a>
+            <a href="contact.html" class="btn btn-secondary" style="background-color: transparent; color: white; border: 2px solid white;">Contact Us</a>
         </div>
     </section>
 
@@ -1061,13 +1067,14 @@
             <div class="footer-content">
                 <div class="footer-column footer-about">
                     <h3>Achile Devine Foundation</h3>
-                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <p>A refugee Led organization dedicated to empowering refugees, survivors of violence, and vulnerable host communities through education, health, and sustainable livelihoods.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/r/1DQw1VEww1/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x"></i></a>
+                        <a href="https://www.instagram.com/achile_devine_foundation?igsh=MWZjZDh4NjhpNDA0Mg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtube.com/@achiledevinefoundation?si=2ArZJmznuWdnQ_JW"><i class="fab fa-youtube"></i></a>
+                        <a href="https://vm.tiktok.com/ZS9Nsq3QgAvVH-J1Bxt/"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -1077,9 +1084,8 @@
                         <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="About_us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
-                        <li><a href="./futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
                         <li><a href="Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                        
                     </ul>
                 </div>
 
@@ -1106,8 +1112,8 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <strong>Email</strong><br>
-                                info@achiledevinefoundation.org<br>
-                                partnerships@achiledevinefoundation.org
+                                info@achiledevinefoundationlimited.org<br>
+                                partnerships@achiledevinefoundationlimited.org
                             </div>
                         </li>
                         <li>

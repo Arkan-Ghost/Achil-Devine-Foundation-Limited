@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achil Devine Foundation - Our Results</title>
+    <title>Achile Devine Foundation - Our Results</title>
     <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
     <style>
         /* === VARIABLES AND GLOBAL STYLES === */
         :root {
@@ -244,7 +247,7 @@
 
         /* === PAGE HEADER === */
         .page-header {
-            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://res.cloudinary.com/dh5audqzd/image/upload/v1776193723/WhatsApp_Image_2026-04-12_at_6.58.51_P_kyecgc.jpg') center/cover no-repeat;
             height: 300px;
             display: flex;
             align-items: center;
@@ -618,7 +621,7 @@
 
         /* === TESTIMONIAL === */
         .testimonial-section {
-            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(10, 47, 68, 0.9), rgba(10, 47, 68, 0.9)), url('https://res.cloudinary.com/dh5audqzd/image/upload/v1776189856/WhatsApp_Image_2026-04-13_at_6.57.23_P_lxmw6h.jpg') center/cover no-repeat;
             color: var(--text-light);
             text-align: center;
         }
@@ -655,7 +658,7 @@
 
         /* === CTA SECTION === */
         .cta-section {
-            background: linear-gradient(rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(10, 47, 68, 0.95), rgba(10, 47, 68, 0.95)), url('https://res.cloudinary.com/dh5audqzd/image/upload/v1776189856/WhatsApp_Image_2026-04-13_at_6.57.23_P_lxmw6h.jpg') center/cover no-repeat;
             text-align: center;
             color: var(--text-light);
         }
@@ -975,10 +978,7 @@
     <!-- FIXED NAVIGATION -->
     <nav class="navbar" id="navbar">
         <div class="logo-container">
-            <div class="logo-placeholder">
-                <i class="fas fa-hand-holding-heart" style="color: var(--accent-orange); margin-right: 10px;"></i>
-                ADF
-            </div>
+            <img src="./img/ADFL.png" alt="Achile Devine Foundation Logo" class="logo-image" onerror="this.style.display='none'">
         </div>
 
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -998,11 +998,11 @@
             <li class="nav-item">
                 <a href="About_us.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                    <a href="Who_we_are.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
+                    <a href="About_us.html" class="dropdown-item"><i class="fas fa-info-circle"></i> Who We Are</a>
                     <a href="mission&vision.html" class="dropdown-item"><i class="fas fa-bullseye"></i> Mission & Vision</a>
-                    <a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>
-                    <a href="parters.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partners</a>
-                    <a href="Annual_Reports.html" class="dropdown-item"><i class="fas fa-file-alt"></i> Annual Reports</a>
+                    <!--<a href="our_team.html" class="dropdown-item"><i class="fas fa-users"></i> Our Team</a>-->
+                    
+                    
                 </div>
             </li>
 
@@ -1010,11 +1010,11 @@
                 <a href="#" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
                     <a href="Livelihood_Programs.html" class="dropdown-item"><i class="fas fa-seedling"></i> Livelihood Programs</a>
-                    <a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>
+                     <!--<a href="Agriculture_Programs.html" class="dropdown-item"><i class="fas fa-tractor"></i> Agriculture Programs</a>-->
                     <a href="Mental_Health_Programs.html" class="dropdown-item"><i class="fas fa-heartbeat"></i> Mental Health Programs</a>
                     <a href="Community_Health_Programs.html" class="dropdown-item"><i class="fas fa-hospital"></i> Community Health Programs</a>
-                    <a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
-                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>
+                    <!--<<a href="Nutrition_Programs.html" class="dropdown-item"><i class="fas fa-apple-alt"></i> Nutrition Programs</a>
+                    <a href="Refugee_Rights&Advocacy.html" class="dropdown-item"><i class="fas fa-gavel"></i> Refugee Rights & Advocacy</a>-->
                 </div>
             </li>
 
@@ -1031,20 +1031,14 @@
                 <div class="dropdown-menu">
                     <a href="Participatory_Approach.html" class="dropdown-item"><i class="fas fa-hand-holding-heart"></i> Participatory</a>
                     <a href="Holistic_Approach.html" class="dropdown-item"><i class="fas fa-circle"></i> Holistic</a>
-                    <a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>
+                    <!--<a href="Sustainable_Approach.html" class="dropdown-item"><i class="fas fa-leaf"></i> Sustainable</a>-->
                     <a href="Inclusive_Approach.html" class="dropdown-item"><i class="fas fa-users"></i> Inclusive</a>
-                    <a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>
+                    <!--<a href="innovative_Approach.html" class="dropdown-item"><i class="fas fa-lightbulb"></i> Innovative</a>-->
                 </div>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">Contact <i class="fas fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
-                    <a href="#" class="dropdown-item"><i class="fas fa-map-marker-alt"></i> Find Us</a>
-                    <a href="#" class="dropdown-item"><i class="fas fa-phone-alt"></i> Call Us</a>
-                    <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Become a Partner</a>
-                </div>
+                <a href="contact.html" class="nav-link">Contact <i></i></a>
             </li>
         </ul>
     </nav>
@@ -1065,14 +1059,14 @@
         <div class="container">
             <div class="intro-row">
                 <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Impact measurement">
+                    <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776193723/WhatsApp_Image_2026-04-12_at_6.58.51_P_kyecgc.jpg" alt="Impact measurement">
                 </div>
                 <div class="intro-content">
                     <div class="intro-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h2>Tracking Our Progress</h2>
-                    <p>At Achil Devine Foundation, we believe in transparency and accountability. We carefully track and measure our impact to ensure that every dollar donated and every hour volunteered creates meaningful change in the lives of those we serve.</p>
+                    <p>At Achile Devine Foundation, we believe in transparency and accountability. We carefully track and measure our impact to ensure that every dollar donated and every hour volunteered creates meaningful change in the lives of those we serve.</p>
                     <p>Our results are not just numbers—they represent real people whose lives have been transformed through our programs. Here's what we've achieved together.</p>
                     <div class="highlight-box">
                         <p>"What gets measured gets improved. Our commitment to monitoring and evaluation ensures we're always learning and doing better."</p>
@@ -1085,22 +1079,22 @@
     <!-- OVERALL STATS -->
     <section class="overall-stats">
         <div class="container">
-            <h2>Overall Impact Since 2015</h2>
+            <h2>Overall Impact Since 2023</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-number">5,200+</span>
+                    <span class="stat-number">1,000+</span>
                     <span class="stat-label">People Served</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">1,800+</span>
+                    <span class="stat-number">500+</span>
                     <span class="stat-label">Youth Trained</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">1,200+</span>
+                    <span class="stat-number">300+</span>
                     <span class="stat-label">Women Empowered</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">15</span>
+                    <span class="stat-number">10</span>
                     <span class="stat-label">Communities Reached</span>
                 </div>
             </div>
@@ -1126,20 +1120,20 @@
                         </div>
                         <div class="program-number-item">
                             <span class="label">Businesses Started</span>
-                            <span class="number">320</span>
+                            <span class="number">100</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Job Placements</span>
-                            <span class="number">450</span>
+                            <span class="number">50</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Employment Rate</span>
-                            <span class="number">78%</span>
+                            <span class="number">70%</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="program-stat">
+                <!-- <div class="program-stat">
                     <div class="program-header">
                         <i class="fas fa-tractor"></i>
                         <h3>Agriculture Programs</h3>
@@ -1162,7 +1156,7 @@
                             <span class="number">85%</span>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="program-stat">
                     <div class="program-header">
@@ -1172,19 +1166,19 @@
                     <div class="program-numbers">
                         <div class="program-number-item">
                             <span class="label">Individuals Counseled</span>
-                            <span class="number">1,200</span>
+                            <span class="number">1,000</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Support Groups</span>
-                            <span class="number">45</span>
+                            <span class="number">10</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Counselors Trained</span>
-                            <span class="number">120</span>
+                            <span class="number">100</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Improvement Rate</span>
-                            <span class="number">92%</span>
+                            <span class="number">75%</span>
                         </div>
                     </div>
                 </div>
@@ -1197,24 +1191,24 @@
                     <div class="program-numbers">
                         <div class="program-number-item">
                             <span class="label">Patients Treated</span>
-                            <span class="number">3,800</span>
+                            <span class="number">1,000</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Children Vaccinated</span>
-                            <span class="number">1,500</span>
+                            <span class="number">100</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Safe Deliveries</span>
-                            <span class="number">420</span>
+                            <span class="number">50</span>
                         </div>
                         <div class="program-number-item">
                             <span class="label">Health Workers</span>
-                            <span class="number">65</span>
+                            <span class="number">15</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="program-stat">
+                <!--<div class="program-stat">
                     <div class="program-header">
                         <i class="fas fa-apple-alt"></i>
                         <h3>Nutrition</h3>
@@ -1262,13 +1256,13 @@
                             <span class="number">50</span>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
 
     <!-- YEARLY PROGRESS -->
-    <section class="yearly-progress">
+    <!--<section class="yearly-progress">
         <div class="container">
             <h2>Year-by-Year Progress</h2>
             <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Our growth and impact over the years.</p>
@@ -1312,7 +1306,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- REACH GRAPH -->
     <section class="reach-section">
@@ -1321,7 +1315,7 @@
             
             <div class="reach-row">
                 <div class="reach-image">
-                    <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community">
+                    <img src="https://res.cloudinary.com/dh5audqzd/image/upload/v1776193699/WhatsApp_Image_2026-04-12_at_6.51.41_PMP_yhemx5.jpg" alt="Community">
                 </div>
                 <div class="reach-stats">
                     <div class="reach-item">
@@ -1395,53 +1389,6 @@
                     <h3>Kampala</h3>
                     <p>2,500+ people</p>
                 </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Gulu</h3>
-                    <p>1,200+ people</p>
-                </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Bidibidi</h3>
-                    <p>800+ people</p>
-                </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Nakivale</h3>
-                    <p>700+ people</p>
-                </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Arua</h3>
-                    <p>600+ people</p>
-                </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Adjumani</h3>
-                    <p>550+ people</p>
-                </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Kyegegwa</h3>
-                    <p>450+ people</p>
-                </div>
-                <div class="geo-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Kiryandongo</h3>
-                    <p>400+ people</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIAL -->
-    <section class="testimonial-section">
-        <div class="container">
-            <div class="testimonial-content">
-                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                <p class="testimonial-text">"The transparency and detail in Achil Devine's impact reports give us complete confidence in our partnership. Their monitoring and evaluation is among the best we've seen."</p>
-                <div class="testimonial-author">- Sarah Johnson</div>
-                <div class="testimonial-role">Global Fund, Program Officer</div>
             </div>
         </div>
     </section>
@@ -1452,8 +1399,7 @@
             <h2>Help Us Create More Impact</h2>
             <p>Your support helps us reach more vulnerable communities and achieve even greater results.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Donate Now</a>
-                <a href="#" class="btn btn-outline-light">Download Full Report</a>
+                <a href="donate.html" class="btn btn-primary">Donate Now</a>
             </div>
         </div>
     </section>
@@ -1463,14 +1409,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column footer-about">
-                    <h3>Achil Devine Foundation</h3>
-                    <p>A humanitarian organization dedicated to empowering refugees, survivors of violence, and vulnerable communities through education, health, and sustainable livelihoods.</p>
+                    <h3>Achile Devine Foundation</h3>
+                    <p>A refugee Led organization dedicated to empowering refugees, survivors of violence, and vulnerable host communities through education, health, and sustainable livelihoods.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/r/1DQw1VEww1/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x"></i></a>
+                        <a href="https://www.instagram.com/achile_devine_foundation?igsh=MWZjZDh4NjhpNDA0Mg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtube.com/@achiledevinefoundation?si=2ArZJmznuWdnQ_JW"><i class="fab fa-youtube"></i></a>
+                        <a href="https://vm.tiktok.com/ZS9Nsq3QgAvVH-J1Bxt/"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -1482,7 +1429,7 @@
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
                         <li><a href="/futur/Annual_Reports.html"><i class="fas fa-chevron-right"></i> Impact & Reports</a></li>
                         <li><a href="/Success_Stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                        
                     </ul>
                 </div>
 
@@ -1509,8 +1456,8 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <strong>Email</strong><br>
-                                info@achiledevinefoundation.org<br>
-                                partnerships@achiledevinefoundation.org
+                                info@achiledevinefoundationlimited.org<br>
+                                partnerships@achiledevinefoundationlimited.org
                             </div>
                         </li>
                         <li>
@@ -1536,7 +1483,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Achil Devine Foundation Limited. All rights reserved.</p>
+                <p>&copy; 2024 Achile Devine Foundation Limited. All rights reserved.</p>
                 <ul class="footer-bottom-links">
                     <li><a href="#">Legal Notice</a></li>
                     <li><a href="#">Privacy Policy</a></li>

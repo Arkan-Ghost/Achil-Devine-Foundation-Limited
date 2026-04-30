@@ -21,12 +21,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Achil Devine Foundation</h1>
+            <h1>Achile Devine Foundation</h1>
         </div>
         <div class="content">
             <h2>Thank You for Your Interest in Volunteering!</h2>
             <p>Dear <?php echo htmlspecialchars($data['name']); ?>,</p>
-            <p>Thank you for your willingness to volunteer with Achil Devine Foundation. We truly appreciate your interest in supporting our mission to empower refugees and vulnerable communities.</p>
+            <p>Thank you for your willingness to volunteer with Achile Devine Foundation. We truly appreciate your interest in supporting our mission to empower refugees and vulnerable communities.</p>
             <p>We have received your volunteer application and our team will review it shortly. Someone from our volunteer coordination team will contact you within the next 3-5 business days to discuss next steps and how you can get involved.</p>
             <p>In the meantime, here's what you can do:</p>
             <ul>
@@ -34,12 +34,12 @@
                 <li>Share our mission with your network</li>
                 <li>Explore our website to learn more about our programs</li>
             </ul>
-            <p>If you have any questions, please don't hesitate to contact us at <a href="mailto:volunteer@achiledevinefoundation.org">volunteer@achiledevinefoundation.org</a>.</p>
+            <p>If you have any questions, please don't hesitate to contact us at <a href="mailto:volunteer@Achiledevinefoundation.org">volunteer@Achiledevinefoundation.org</a>.</p>
             <p>Thank you again for your support!</p>
-            <p>Best regards,<br>The Achil Devine Foundation Team</p>
+            <p>Best regards,<br>The Achile Devine Foundation Team</p>
         </div>
         <div class="footer">
-            <p>&copy; 2024 Achil Devine Foundation. All rights reserved.</p>
+            <p>&copy; 2024 Achile Devine Foundation. All rights reserved.</p>
             <p>Plot 123, NGO Street, Kampala, Uganda</p>
         </div>
     </div>

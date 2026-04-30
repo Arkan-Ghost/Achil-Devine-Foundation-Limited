@@ -24,32 +24,32 @@ function sendEmailTemplate($to, $subject, $templateName, $data) {
 }
 
 function sendVolunteerConfirmation($email, $name) {
-    $subject = "Thank You for Volunteering - Achil Devine Foundation";
+    $subject = "Thank You for Volunteering - Achile Devine Foundation";
     $data = ['name' => $name];
     return sendEmailTemplate($email, $subject, 'volunteer_confirmation', $data);
 }
 
 function sendPartnerConfirmation($email, $organization) {
-    $subject = "Partnership Request Received - Achil Devine Foundation";
+    $subject = "Partnership Request Received - Achile Devine Foundation";
     $data = ['organization' => $organization];
     return sendEmailTemplate($email, $subject, 'partner_confirmation', $data);
 }
 
 function sendDonationConfirmation($email, $name, $amount) {
-    $subject = "Thank You for Your Donation - Achil Devine Foundation";
+    $subject = "Thank You for Your Donation - Achile Devine Foundation";
     $data = ['name' => $name, 'amount' => $amount];
     return sendEmailTemplate($email, $subject, 'donation_confirmation', $data);
 }
 
 function sendNewsletterConfirmation($email, $name) {
-    $subject = "Welcome to Our Newsletter - Achil Devine Foundation";
+    $subject = "Welcome to Our Newsletter - Achile Devine Foundation";
     $data = ['name' => $name];
     return sendEmailTemplate($email, $subject, 'newsletter_confirmation', $data);
 }
 
 function sendAdminNotification($type, $data) {
     $adminEmail = ADMIN_EMAIL;
-    $subject = "New " . ucfirst($type) . " Submission - Achil Devine Foundation";
+    $subject = "New " . ucfirst($type) . " Submission - Achile Devine Foundation";
     
     ob_start();
     include __DIR__ . '/../emails/admin_notification.php';

@@ -1,6 +1,6 @@
 -- Créer la base de données
-CREATE DATABASE IF NOT EXISTS achile_devine_foundation;
-USE achile_devine_foundation;
+CREATE DATABASE IF NOT EXISTS Achile_devine_foundation;
+USE Achile_devine_foundation;
 
 -- Table pour les volontaires
 CREATE TABLE volunteers (
